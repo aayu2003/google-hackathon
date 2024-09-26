@@ -1,0 +1,9 @@
+.env
+seg_map/*.html
+seg_map/**/*.html
+seg_ss/*.png
+seg_ss/**/*.png
+chromedriver-linux64.zip
+__pycache__/
+google-chrome-stable_current_amd64.deb
+land_zoom/*.html
