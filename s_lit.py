@@ -8,7 +8,7 @@ import asyncio
 # Disable Jupyter support in pydeck
 import pydeck.bindings.deck
 pydeck.bindings.deck.has_jupyter_extra = lambda: False
-
+st.set_page_config(layout="wide")
 # FastAPI URL (change this to your actual server address)
 API_URL = "http://localhost:8000/add_city"
 

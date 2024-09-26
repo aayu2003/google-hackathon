@@ -54,7 +54,7 @@ async def add_city(city:City, db: Session = Depends(get_db)):
     # Markets = gc(cityy + " market",0)
     if not check_db:
             Airports = gc(cityy + " airport",0.4)                                                  # first scrape airport name, then search geocode
-            Stations= gc(cityy + " railway",0.45)
+            Stations= gc(cityy + " railway",0.4)
             path = make_map(c[0][1], cityy)
             satellite_path=make_map_satellite(c[0][1],cityy)
             img_path = save_ss(cityy, path)
