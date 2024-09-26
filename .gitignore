@@ -6,4 +6,4 @@ seg_ss/**/*.png
 chromedriver-linux64.zip
 __pycache__/
 google-chrome-stable_current_amd64.deb
-land_zoom/*.html
+land_zoom/H/*.html
