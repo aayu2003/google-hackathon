@@ -75,10 +75,22 @@ elif st.session_state.page == "add_store":
                 city_lat = city_data.get('lat')
                 city_long = city_data.get('long')
                 city_name = city_data["name"]
-                st.write("DISTANCE BASED CLUSTERING OF HOUSES AND BUILDINGS")
+                st.markdown(
+                    """
+                    <style>
+                    .title {
+                        text-align: center;
+                    }
+                    </style>
+                    """,
+                    unsafe_allow_html=True
+                )
+
+                # Use st.markdown with custom class for the title
+                st.markdown("<h1 class='title'>DISTANCE BASED CLUSTERING OF HOUSES AND BUILDINGS</h1>", unsafe_allow_html=True)
                 image = Image.open(f"plots/{city_name}_plot.png")
                 st.image(image, caption="DIVIDED INTO 12 CLUSTERS", use_column_width=True)
-                
+                st.markdown("<h1 class='title'>POTENTIAL SPOTS FOR NEW CROMA STORES</h1>", unsafe_allow_html=True)
                 store_locations = pd.DataFrame({
                     'lat': [store["coord"][0] for store in stores],
                     'lon': [store["coord"][1] for store in stores],
