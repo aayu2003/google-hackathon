@@ -87,7 +87,7 @@ def make_cluster_land(img_path,satellite_path):
     land_pixels = np.column_stack(np.where(mask > 0))
 
     # Apply DBSCAN clustering
-    db = DBSCAN(eps=8, min_samples=1).fit(land_pixels)
+    db = DBSCAN(eps=8, min_samples=2).fit(land_pixels)
     labels = db.labels_
 
     # Number of clusters in labels, ignoring noise if present.

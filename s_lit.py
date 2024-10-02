@@ -6,11 +6,15 @@ from PIL import Image
 import asyncio
 
 # Disable Jupyter support in pydeck
+
 import pydeck.bindings.deck
 pydeck.bindings.deck.has_jupyter_extra = lambda: False
 st.set_page_config(layout="wide")
+
 # FastAPI URL (change this to your actual server address)
+
 API_URL = "http://localhost:8000/add_city"
+FORECAST_URL="http://localhost:8000/demand_forecasting"
 
 # Set up the session state for page navigation
 if "page" not in st.session_state:
@@ -28,33 +32,44 @@ CLUSTER_COLORS = {
 
 # Function to send POST request asynchronously and get stores data
 async def get_city_stores(city_name):
-    async with httpx.AsyncClient() as client:
+    timeout = httpx.Timeout(600.0)  # Set a custom timeout of 10 seconds
+    async with httpx.AsyncClient(timeout=timeout) as client:
         try:
-            # Send the POST request to FastAPI, adhering to the new schema
-            response = await client.post(API_URL, json={"name": city_name})  # 'name' key matches the City schema
-            response.raise_for_status()
-            # Parse the JSON response
-            city_data = response.json()
-            return city_data
-        except httpx.RequestError as e:
-            st.error(f"Error fetching data: {e}")
-            return {}
+            response = await client.post(API_URL, json={"name": city_name})
+            response.raise_for_status()  # Ensure response is OK
+            return response.json()  # Parse and return the JSON response
+        except httpx.ReadTimeout:
+            print(f"Request to {API_URL} timed out.")
+        except httpx.HTTPStatusError as e:
+            print(f"HTTP error occurred: {e}")
+
+async def send_for_forecast(city_name, product_name,quantity=250):
+    timeout = httpx.Timeout(600.0)  # Set a custom timeout of 10 seconds
+    async with httpx.AsyncClient(timeout=timeout) as client:
+        try:
+            response = await client.post(FORECAST_URL, json={"category": product_name,"city": city_name,"quantity": quantity})
+            response.raise_for_status()  # Ensure response is OK
+            return response.json()  # Parse and return the JSON response
+        except httpx.ReadTimeout:
+            print(f"Request to {API_URL} timed out.")
+        except httpx.HTTPStatusError as e:
+            print(f"HTTP error occurred: {e}")
 
 # Home page
 if st.session_state.page == "home":
-    st.title("Croma Sales Analysis")
+    st.title("Croma Sales Analysis   (show sales analysis and competitor analysis here)")
     image = st.image("Electronics.jpg", caption="Electronics Store", use_column_width=True)
 
     # Sidebar with buttons
     st.sidebar.title("Options")
     if st.sidebar.button("Add New Offline Store"):
         go_to_page("add_store")
-    if st.sidebar.button("Previous Sales Analysis"):
-        st.write("Functionality for previous sales analysis will be implemented here.")
+    # if st.sidebar.button("Previous Sales Analysis"):
+    #     st.write("Functionality for previous sales analysis will be implemented here.")
     if st.sidebar.button("Demand Forecasting"):
-        st.write("Functionality for demand forecasting will be implemented here.")
-    if st.sidebar.button("Competitor Analysis"):
-        st.write("Functionality for competitor analysis will be implemented here.")
+        # st.write("Functionality for demand forecasting will be implemented here.")
+        go_to_page("Demand Forecasting")
+    
 
 # Page for adding a new offline store
 elif st.session_state.page == "add_store":
@@ -64,7 +79,7 @@ elif st.session_state.page == "add_store":
 
     if st.button("Show Potential Spots"):
         if city:
-            st.write(f"Fetching data for city: {city}...")
+            st.write(f"Fetching data for city: {city}... (THIS MIGHT TAKE UPTO 5 MINS)")
 
             # Get the stores data asynchronously
             city_data = asyncio.run(get_city_stores(city))
@@ -121,10 +136,11 @@ elif st.session_state.page == "add_store":
                         <b>Houses:</b> {houses}<br/>
                         <b>Air Distance:</b> {air_dist}<br/>
                         <b>Station Distance:</b> {station_dist}<br/>
-                        <img src="http://localhost:8000/static/{city_name}_{id}.png" alt="Store Image" width="150" height="100">
+                        <img src="http://localhost:8000/static/{city_name}_{id}.png" alt="Store Image" width="500" height="500">
                     """,
                     "style": {"color": "white"}
                 }
+
 
 
 
@@ -147,5 +163,52 @@ elif st.session_state.page == "add_store":
         else:
             st.warning("Please enter a city name.")
 
+    if st.button("Go Back"):
+        go_to_page("home")
+
+# Page for demand forecasting
+elif st.session_state.page == "Demand Forecasting":
+    st.title("Demand Forecasting")
+   
+
+    
+
+
+    # Create input form to capture product name and city name
+    with st.form(key='forecast_form'):
+        product_name = st.text_input("Enter the Product Name")
+        city_name = st.text_input("Enter the City Name")
+        
+        # Submit button
+        submit_button = st.form_submit_button(label='Submit')
+
+        
+
+    # When the form is submitted
+    if submit_button:
+        # Replace with your actual backend API endpoint
+        
+        st.write(f"Forecasting demand for {product_name} in {city_name}... (THIS MIGHT TAKE UPTO 2 MINS)")
+        result=asyncio.run(send_for_forecast(city_name, product_name))
+
+        forecast_data = result
+        print(forecast_data["products"])
+        # Convert the JSON data to a DataFrame for better display
+        df = pd.DataFrame(forecast_data["products"])
+        
+
+        # Display the forecast summary
+        st.write(f"**City:** {forecast_data['city']}")
+        st.write(f"**City Type:** {forecast_data['city_type']}")
+        st.write(f"**Demand Summary:** {forecast_data['demand_summary']}")
+
+        # Display the forecasted products in tabular form
+        st.write("### Forecasted Products")
+        st.table(df[['model_name', 'specifications', 'trending_level', 'no_of_units_forcasted', 'price']])
+            
+        
+
+
+    # Go back to home button
     if st.button("Go Back"):
         go_to_page("home")

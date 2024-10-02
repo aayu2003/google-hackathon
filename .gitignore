@@ -7,3 +7,4 @@ chromedriver-linux64.zip
 __pycache__/
 google-chrome-stable_current_amd64.deb
 land_zoom/H/*.html
+land_zoom/img/*.png

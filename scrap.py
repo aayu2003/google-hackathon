@@ -27,35 +27,48 @@
 
 # else:
 #     print(f"Failed to retrieve webpage. Status code: {response.status_code}")
+
+
 import requests
 from bs4 import BeautifulSoup
 import re
 
 # URL of the webpage to scrape
-url = 'https://www.croma.com/unboxed/best-3-star-acs'
+
+def scrapp(url):
+    try:
 
 # Send a GET request to the webpage
-response = requests.get(url)
+        response = requests.get(url)
 
-# Check if the request was successful
-if response.status_code == 200:
-    # Parse the HTML content
-    soup = BeautifulSoup(response.content, 'html.parser')
+        # Check if the request was successful
+        
+            
+        if response.status_code == 200:
+            # Parse the HTML content
+            response = requests.get(url)
 
-    # Convert the parsed HTML into a string
-    html_content = str(soup)
+            # Parse the HTML content with BeautifulSoup
+            soup = BeautifulSoup(response.content, 'html.parser')
 
-    # Define the regex pattern for the tags of interest (a, p, li, span, h1-h6)
-    pattern = re.compile(r'<(a|p|li|span|h[1-6])[^>]*>(.*?)</\1>', re.S)
+            # Extract all text content from the page
+            text_content = soup.get_text()
 
-    # Find all content that matches the regex
-    matches = pattern.findall(html_content)
+            # Optionally clean up the text (e.g., remove excess whitespace)
+            cleaned_text = ' '.join(text_content.split())
 
-    # Print content in the order it appears in the HTML
-    for tag, content in matches:
-        clean_text = BeautifulSoup(content, 'html.parser').get_text(strip=True)  # Clean the inner content
-        if clean_text:
-            print(f"<{tag}>: {clean_text}")
+            return cleaned_text
+                    # return "\n".join(maal)
 
-else:
-    print(f"Failed to retrieve webpage. Status code: {response.status_code}")
+        else:
+            return f"Failed to retrieve webpage. Status code: {response.status_code}"
+    except:
+        return f"Failed to retrieve webpage"
+# print(scrapp("https://www.statista.com/statistics/1018500/india-leading-ac-providers-market-share/"))
+
+
+
+
+# # Fetch the page content
+# url = 'https://example.com'  # Replace with the URL you want to scrape
+

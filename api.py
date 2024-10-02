@@ -1,15 +1,14 @@
-from fastapi import FastAPI
-import google.generativeai as genai
 
-# Initialize FastAPI app
-app = FastAPI()
+import google.generativeai as genai
+from dotenv import load_dotenv
+load_dotenv()
+import os
 
 # Store conversation history for each user in a dictionary (in production, use a DB)
 chat_sessions = {}
 
 # Google Generative AI API key
-api_key = "AIzaSyCttE7CHlvxpD3o4bNMHi7Sj52IHPbfaTU"
-genai.configure(api_key=api_key)
+genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
 # Configuration for the model
 generation_config = {
@@ -29,19 +28,8 @@ model = genai.GenerativeModel(
 # Function to get the chat session or create a new one for each user
 def get_chat_session(user_id: str):
     if user_id not in chat_sessions:
-        chat_sessions[user_id] = model.start_chat(history=[])
+        chat_sessions[user_id] = model.start_chat(history=[{"role": "system", "content": "You are a helpful assistant."}])
     return chat_sessions[user_id]
 
-# API endpoint to handle GET chat messages via query params
-@app.get("/chat/")
-async def chat(user_id: str, message: str):
-    # Get or create the chat session for this user
-    chat_session = get_chat_session(user_id)
 
-    # Send the user's message to the model and get the response
-    response = chat_session.send_message(message)
 
-    # Return the bot's response
-    return {"response": response.text}
-
-# Command to run the server: uvicorn <script_name>:app --reload
