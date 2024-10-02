@@ -57,7 +57,7 @@ async def send_for_forecast(city_name, product_name,quantity=250):
 
 # Home page
 if st.session_state.page == "home":
-    st.title("Croma Sales Analysis   (show sales analysis and competitor analysis here)")
+    st.title("Croma Sales Analysis")
     image = st.image("Amazon vs my total sales.png", caption="Electronics Store", use_column_width=True)
     image1=st.image("category sales.png", caption="Electronics Store", use_column_width=True)
     # Sidebar with buttons
@@ -212,3 +212,9 @@ elif st.session_state.page == "Demand Forecasting":
     # Go back to home button
     if st.button("Go Back"):
         go_to_page("home")
+
+
+
+
+
+#f4c5812fc8
