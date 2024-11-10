@@ -50,21 +50,21 @@ def make_map_satellite(L,city):
 
 
 
-def land_zoom(L,city,id):
-        my_map1 = folium.Map(location=L, zoom_start=18)
-        tile = folium.TileLayer(
-        tiles = 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
-        attr = 'Esri',
-        name = 'Esri Satellite',
-        overlay = False,
-        control = True
-        ).add_to(my_map1)
-        folium.Marker(
-        location=L,
-        popup="Store",
-        icon=folium.Icon(icon="store", prefix='fa')
-        ).add_to(my_map1)
-        my_map1.save(f"land_zoom/H/{city}_{id}.html")
+# def land_zoom(L,city,id):
+#         my_map1 = folium.Map(location=L, zoom_start=18)
+#         tile = folium.TileLayer(
+#         tiles = 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+#         attr = 'Esri',
+#         name = 'Esri Satellite',
+#         overlay = False,
+#         control = True
+#         ).add_to(my_map1)
+#         folium.Marker(
+#         location=L,
+#         popup="Store",
+#         icon=folium.Icon(icon="store", prefix='fa')
+#         ).add_to(my_map1)
+#         my_map1.save(f"land_zoom/H/{city}_{id}.html")
         
-        return f"land_zoom/H/{city}_{id}.html"
+#         return f"land_zoom/H/{city}_{id}.html"
 

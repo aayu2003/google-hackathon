@@ -14,7 +14,7 @@ from crew import TripCrew
 # import logging
 from schemas import City, demand
 from geocoding import gc
-from map import make_map,make_map_satellite,land_zoom
+from map import make_map,make_map_satellite
 from geocoding import gc,rev,haversine
 from selen import save_ss,save_ss_satellite,selen_zoom
 from cluster import make_cluster,make_cluster_land
@@ -39,7 +39,7 @@ load_dotenv()
 from fastapi.staticfiles import StaticFiles
 
 # Mount the 'land_zoom/img' directory
-app.mount("/static", StaticFiles(directory="land_zoom/img"), name="static")
+# app.mount("/static", StaticFiles(directory="land_zoom/img"), name="static")
 
 tables.Base.metadata.create_all(engine) 
 
@@ -48,11 +48,11 @@ def convert_to_coord(k,top,left):
 def pic_dist(a,b,c,d):
     return math.sqrt((a-c)**2+(b-d)**2)
 
-def process_new_stores(stores, city):
-    # The snippet to run in the background
-    for st in stores:
-        H_path = land_zoom(st["coord"], city, st["id"])
-        selen_zoom(city, H_path, st["id"])
+# def process_new_stores(stores, city):
+#     # The snippet to run in the background
+#     for st in stores:
+#         H_path = land_zoom(st["coord"], city, st["id"])
+#         selen_zoom(city, H_path, st["id"])
 
 
 def get_variable_name(var):
