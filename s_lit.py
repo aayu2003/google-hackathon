@@ -99,8 +99,8 @@ def marketing_strategy(df,dropping_columns,column_explainination):
 
     return l
 
-API_URL = "http://127.0.0.1:8000/add_city"
-FORECAST_URL="http://127.0.0.1:8000/demand_forecasting"
+API_URL = "https://hack-the-fall.onrender.com/add_city"
+FORECAST_URL="https://hack-the-fall.onrender.com/demand_forecasting"
 
 # Set up the session state for page navigation
 if "page" not in st.session_state:
