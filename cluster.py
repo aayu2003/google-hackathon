@@ -2,7 +2,6 @@ import cv2
 import numpy as np
 from sklearn.cluster import KMeans,DBSCAN
 import matplotlib.pyplot as plt
-import crewai
 
 
 def make_cluster(img_path, satellite_path,cn, n_clusters=12):

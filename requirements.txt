@@ -1,11 +1,11 @@
 crewai==0.30.11
 google-generativeai==0.7.2
-opencv-contrib-python==4.10.0.84
-opencv-python==4.10.0.84
-opencv-python-headless==4.9.0.80
+# opencv-contrib-python==4.10.0.84
+# opencv-python==4.10.0.84
+# opencv-python-headless==4.9.0.80
 numpy
 matplotlib
-scikit-image
+# scikit-image
 scikit-learn
 SQLAlchemy==2.0.35
 fastapi==0.115.0

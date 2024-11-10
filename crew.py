@@ -327,7 +327,7 @@ estate market and capitalise on the opportunities presented by each tier.
     
   print("SCRAPPING DONE")
   
-  import json
+
   trip_crew = TripCrew(category, quantity,"\n\n".join(FULL),city,CITY)
   # trip_crew = TripCrew(category, quantity,"no data")
   result = trip_crew.run()
