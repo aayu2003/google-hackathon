@@ -1,8 +1,9 @@
 crewai==0.30.11
-google-generativeai==0.7.2
+# google-generativeai==0.7.2
 # opencv-contrib-python==4.10.0.84
 # opencv-python==4.10.0.84
 # opencv-python-headless==4.9.0.80
+google-generativeai==0.5.2
 numpy
 matplotlib
 # scikit-image
