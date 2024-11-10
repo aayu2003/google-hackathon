@@ -12,6 +12,12 @@ load_dotenv()
 import google.generativeai as genai
 from streamlit.components.v1 import iframe
 import folium
+import numpy as np
+from sklearn.decomposition import PCA
+from sklearn.cluster import KMeans
+from scipy.spatial.distance import cdist
+import pandas as pd
+from sklearn.preprocessing import LabelEncoder
 model = genai.GenerativeModel(model_name="gemini-1.5-flash")
 
 # os.environ['LANGCHAIN_TRACING_V2'] ="true"
@@ -24,6 +30,74 @@ pydeck.bindings.deck.has_jupyter_extra = lambda: False
 st.set_page_config(layout="wide")
 
 # FastAPI URL (change this to your actual server address)
+def marketing_strategy(df,dropping_columns,column_explainination):
+    df = df.drop(columns=dropping_columns,axis=1)
+
+
+    label_mappings = {}
+
+    # Apply LabelEncoder to each column and store the mappings
+    for column in df.columns:
+        le = LabelEncoder()
+        df[column] = le.fit_transform(df[column])
+    
+    # Store the mapping for the current column
+    label_mappings[column] = dict(zip(le.classes_, le.transform(le.classes_)))
+    pca = PCA(n_components=3)
+    X_pca = pca.fit_transform(df)
+
+    # Apply KMeans clustering
+    kmeans = KMeans(n_clusters=10, random_state=0)
+    kmeans.fit(X_pca)
+    labels = kmeans.labels_
+    cluster_centers = kmeans.cluster_centers_
+
+    # Calculate the Euclidean distances from each point in X_pca to each cluster center
+    distances = cdist(X_pca, cluster_centers, 'euclidean')
+
+    # Find the index of the nearest point in X_pca to each cluster center
+    nearest_indices = []
+    for i in range(kmeans.n_clusters):
+        # Get indices of points assigned to cluster i
+        cluster_indices = np.where(labels == i)[0]
+        # Select the index of the point with the minimum distance to the cluster center
+        cluster_distances = distances[cluster_indices, i]
+        nearest_point_index = cluster_indices[np.argmin(cluster_distances)]
+        nearest_indices.append(nearest_point_index)
+
+    l={}
+    for i, idx in enumerate(nearest_indices):
+        row_dict = df.loc[idx].to_dict()
+        import google.generativeai as genai
+        import json
+
+        # Directly use the API key
+        api_key = "AIzaSyCttE7CHlvxpD3o4bNMHi7Sj52IHPbfaTU"
+        genai.configure(api_key=api_key)
+
+        # Create the model
+        generation_config = {
+            "temperature": 1,
+            "top_p": 0.95,
+            "top_k": 64,
+            "max_output_tokens": 8192,
+            "response_mime_type": "text/plain",  # Request JSON response
+        }
+
+        model = genai.GenerativeModel(
+            model_name="gemini-1.5-flash",
+            generation_config=generation_config,
+        )
+
+        chat_session = model.start_chat(
+            history=[
+            ]
+        )
+        
+        l[i]=chat_session.send_message(f'''give me a single, unique snd consised yet breif marketing strategy for a group of customer segmentation haveing the {row_dict} every index shall tell in this manner . This {row_dict} is a dictonary made my consedering many people , its not just a single person's information it is the information or an approximate information of a group  
+        all the columns are in a way that {column_explainination} ''').text
+
+    return l
 
 API_URL = "http://localhost:8000/add_city"
 FORECAST_URL="http://localhost:8000/demand_forecasting"
@@ -71,7 +145,25 @@ async def send_for_forecast(city_name, product_name,quantity=250):
 if st.session_state.page == "home":
     st.title("CUSTOMER SEGMENTATION (MARKETING)")
     
-    
+    uploaded_file = st.file_uploader("Upload a CSV file", type=["csv"])
+
+# Check if a file is uploaded
+    if uploaded_file is not None:
+        # Read the CSV file into a pandas DataFrame
+        df = pd.read_csv(uploaded_file)
+        
+        # Display the first few rows of the DataFrame to the user
+        st.subheader("Preview of the Uploaded CSV:")
+        st.write(df.head())
+        
+        # Single text box for the user to provide descriptions for all columns
+        st.subheader("Provide a description for the columns")
+        description_text = st.text_area("Enter descriptions for the columns. Format: \nColumn1: Description\nColumn2: Description\n...", height=200)
+        
+        # Display the description text when the user submits
+        if st.button("Submit Descriptions"):
+            market=marketing_strategy(df,['account_creation_date','last_login_date','last_transaction_date','user_id','name','email','location','product_affinity'],description_text)
+
     # Sidebar with buttons
     st.sidebar.image("Business-Aidelogo1-6-1.png", use_column_width=True)
     # st.sidebar.title("Options")
