@@ -1,0 +1,1415 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_442c956d0b6fef323f779c24a221bf2f {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_442c956d0b6fef323f779c24a221bf2f" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_442c956d0b6fef323f779c24a221bf2f = L.map(
+                "map_442c956d0b6fef323f779c24a221bf2f",
+                {
+                    center: [22.5726459, 88.3638953],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 12,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_f0b8cfaf91b60b7de92c26666ee8e894 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_f0b8cfaf91b60b7de92c26666ee8e894.addTo(map_442c956d0b6fef323f779c24a221bf2f);
+        
+    
+            var marker_dbf3641090f9a0e52bccdb0b19e06a5f = L.marker(
+                [22.5722242, 88.3614363],
+                {}
+            ).addTo(map_442c956d0b6fef323f779c24a221bf2f);
+        
+    
+        var custom_icon_e4283d59c8d46400cc4465be47e1ff97 = L.icon({"iconSize": [20, 20], "iconUrl": "https://img.icons8.com/color/48/000000/hospital.png"});
+        marker_dbf3641090f9a0e52bccdb0b19e06a5f.setIcon(custom_icon_e4283d59c8d46400cc4465be47e1ff97);
+        
+    
+        var popup_139660448c6eac87499720d184aecf9f = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_f4cd52b6e02f924cd4f1bf79c9941afa = $(`<div id="html_f4cd52b6e02f924cd4f1bf79c9941afa" style="width: 100.0%; height: 100.0%;">Calcutta Medical College & Hospital, College Street, Tiretta Bazaar, Bowbazar, Kolkata, Kolkata District, West Bengal, 700073, India</div>`)[0];
+                popup_139660448c6eac87499720d184aecf9f.setContent(html_f4cd52b6e02f924cd4f1bf79c9941afa);
+            
+        
+
+        marker_dbf3641090f9a0e52bccdb0b19e06a5f.bindPopup(popup_139660448c6eac87499720d184aecf9f)
+        ;
+
+        
+    
+    
+            var marker_d796c706c2746cd7dd89f44593c30d38 = L.marker(
+                [22.6044756, 88.37840669125795],
+                {}
+            ).addTo(map_442c956d0b6fef323f779c24a221bf2f);
+        
+    
+        var custom_icon_c5293ee8e621f578570b318a13e64e5c = L.icon({"iconSize": [20, 20], "iconUrl": "https://img.icons8.com/color/48/000000/hospital.png"});
+        marker_d796c706c2746cd7dd89f44593c30d38.setIcon(custom_icon_c5293ee8e621f578570b318a13e64e5c);
+        
+    
+        var popup_d9b965cfe201f017df4c047fc1d18711 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_d79945dd30f167935874c50a951d4c03 = $(`<div id="html_d79945dd30f167935874c50a951d4c03" style="width: 100.0%; height: 100.0%;">R.G. Kar Medical College & Hospital, 1, Raicharan Sadhukhan Rd, Chitpur North, Kolkata, Kolkata District, West Bengal, 700004, India</div>`)[0];
+                popup_d9b965cfe201f017df4c047fc1d18711.setContent(html_d79945dd30f167935874c50a951d4c03);
+            
+        
+
+        marker_d796c706c2746cd7dd89f44593c30d38.bindPopup(popup_d9b965cfe201f017df4c047fc1d18711)
+        ;
+
+        
+    
+    
+            var marker_c6b6ee97c1b155da6efbbb3f6175610d = L.marker(
+                [22.5637591, 88.37042168465923],
+                {}
+            ).addTo(map_442c956d0b6fef323f779c24a221bf2f);
+        
+    
+        var custom_icon_04b9e7978f19356f38773c8875ab7821 = L.icon({"iconSize": [20, 20], "iconUrl": "https://img.icons8.com/color/48/000000/hospital.png"});
+        marker_c6b6ee97c1b155da6efbbb3f6175610d.setIcon(custom_icon_04b9e7978f19356f38773c8875ab7821);
+        
+    
+        var popup_6e8066ef0d2a1d7b5ff27be5e12b63a7 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_b65d7391dc305c40794d0adfa5694484 = $(`<div id="html_b65d7391dc305c40794d0adfa5694484" style="width: 100.0%; height: 100.0%;">Nil Ratan Sircar Medical College and Hospital, AJC Bose Road, Chandni Chowk East, Kolkata, Kolkata District, West Bengal, 700009, India</div>`)[0];
+                popup_6e8066ef0d2a1d7b5ff27be5e12b63a7.setContent(html_b65d7391dc305c40794d0adfa5694484);
+            
+        
+
+        marker_c6b6ee97c1b155da6efbbb3f6175610d.bindPopup(popup_6e8066ef0d2a1d7b5ff27be5e12b63a7)
+        ;
+
+        
+    
+    
+            var marker_67f71dffc6471f6c2eab1852f45b19d7 = L.marker(
+                [22.544254, 88.33633210821421],
+                {}
+            ).addTo(map_442c956d0b6fef323f779c24a221bf2f);
+        
+    
+        var custom_icon_c435d72e84a0c695f4ac13d37f9b131e = L.icon({"iconSize": [20, 20], "iconUrl": "https://img.icons8.com/color/48/000000/hospital.png"});
+        marker_67f71dffc6471f6c2eab1852f45b19d7.setIcon(custom_icon_c435d72e84a0c695f4ac13d37f9b131e);
+        
+    
+        var popup_7df72fab88ea507e36e60c7dc079842d = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_461e637ec17ee6097b26a7142a3f04ee = $(`<div id="html_461e637ec17ee6097b26a7142a3f04ee" style="width: 100.0%; height: 100.0%;">Kolkata Race Course, Hospital Road, Ho Chi Minh Sarani, Kolkata, Kolkata District, West Bengal, 700038, India</div>`)[0];
+                popup_7df72fab88ea507e36e60c7dc079842d.setContent(html_461e637ec17ee6097b26a7142a3f04ee);
+            
+        
+
+        marker_67f71dffc6471f6c2eab1852f45b19d7.bindPopup(popup_7df72fab88ea507e36e60c7dc079842d)
+        ;
+
+        
+    
+    
+            var marker_fca51538bb4970af4dab9a616d1462c6 = L.marker(
+                [22.493897099999998, 88.37350613766735],
+                {}
+            ).addTo(map_442c956d0b6fef323f779c24a221bf2f);
+        
+    
+        var custom_icon_19c5dee37eb12244802b47bd58c4d697 = L.icon({"iconSize": [20, 20], "iconUrl": "https://img.icons8.com/color/48/000000/hospital.png"});
+        marker_fca51538bb4970af4dab9a616d1462c6.setIcon(custom_icon_19c5dee37eb12244802b47bd58c4d697);
+        
+    
+        var popup_32b4bcd0ab623cec6a2ce8afc353af77 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_643308474a709d4ed123b365628d0784 = $(`<div id="html_643308474a709d4ed123b365628d0784" style="width: 100.0%; height: 100.0%;">KPC Medical College And Hospital, Santoshpur Avenue, Santoshpur, Ananda Pally, Kolkata, Kolkata District, West Bengal, 700032, India</div>`)[0];
+                popup_32b4bcd0ab623cec6a2ce8afc353af77.setContent(html_643308474a709d4ed123b365628d0784);
+            
+        
+
+        marker_fca51538bb4970af4dab9a616d1462c6.bindPopup(popup_32b4bcd0ab623cec6a2ce8afc353af77)
+        ;
+
+        
+    
+    
+            var marker_87fe67599e809cdae29d4b66efb28fb1 = L.marker(
+                [22.58995915, 88.35184204490898],
+                {}
+            ).addTo(map_442c956d0b6fef323f779c24a221bf2f);
+        
+    
+        var custom_icon_65e79e4c10dbc2b408a677cee2e1ac80 = L.icon({"iconSize": [20, 20], "iconUrl": "https://img.icons8.com/color/48/000000/hospital.png"});
+        marker_87fe67599e809cdae29d4b66efb28fb1.setIcon(custom_icon_65e79e4c10dbc2b408a677cee2e1ac80);
+        
+    
+        var popup_e1ed05396210905bfa55213550d93e03 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_592302539bfa4900be12757dd8a42d7a = $(`<div id="html_592302539bfa4900be12757dd8a42d7a" style="width: 100.0%; height: 100.0%;">Mayo Hospital, Jagganath Ghat, Kolkata, Kolkata District, West Bengal, India</div>`)[0];
+                popup_e1ed05396210905bfa55213550d93e03.setContent(html_592302539bfa4900be12757dd8a42d7a);
+            
+        
+
+        marker_87fe67599e809cdae29d4b66efb28fb1.bindPopup(popup_e1ed05396210905bfa55213550d93e03)
+        ;
+
+        
+    
+    
+            var marker_8464ab3da354d6c865dbe56668aea2b5 = L.marker(
+                [22.5404412, 88.339375],
+                {}
+            ).addTo(map_442c956d0b6fef323f779c24a221bf2f);
+        
+    
+        var custom_icon_6d61781824631757d9a8d22a98366514 = L.icon({"iconSize": [20, 20], "iconUrl": "https://img.icons8.com/color/48/000000/hospital.png"});
+        marker_8464ab3da354d6c865dbe56668aea2b5.setIcon(custom_icon_6d61781824631757d9a8d22a98366514);
+        
+    
+        var popup_5e0ba26f1d76653cd72cff90e28b399e = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_5482a4821548db6797b1619c4ce4fb27 = $(`<div id="html_5482a4821548db6797b1619c4ce4fb27" style="width: 100.0%; height: 100.0%;">Hospital Road, Bhowanipore, Kolkata, Kolkata District, West Bengal, 700038, India</div>`)[0];
+                popup_5e0ba26f1d76653cd72cff90e28b399e.setContent(html_5482a4821548db6797b1619c4ce4fb27);
+            
+        
+
+        marker_8464ab3da354d6c865dbe56668aea2b5.bindPopup(popup_5e0ba26f1d76653cd72cff90e28b399e)
+        ;
+
+        
+    
+    
+            var marker_cc9ef9f28d215130f23167fc1d95fa7d = L.marker(
+                [22.564474, 88.3565741],
+                {}
+            ).addTo(map_442c956d0b6fef323f779c24a221bf2f);
+        
+    
+        var custom_icon_16762a8cc7bef3825d24f357fef1d729 = L.icon({"iconSize": [20, 20], "iconUrl": "https://img.icons8.com/color/48/000000/hospital.png"});
+        marker_cc9ef9f28d215130f23167fc1d95fa7d.setIcon(custom_icon_16762a8cc7bef3825d24f357fef1d729);
+        
+    
+        var popup_4f7f628a0f1ccd5e7a3f5b14577443c1 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_80f8a2a7bbb5191e122f22ac400f0dcc = $(`<div id="html_80f8a2a7bbb5191e122f22ac400f0dcc" style="width: 100.0%; height: 100.0%;">Hospital Street, New Market, Kolkata, Kolkata District, West Bengal, 700013, India</div>`)[0];
+                popup_4f7f628a0f1ccd5e7a3f5b14577443c1.setContent(html_80f8a2a7bbb5191e122f22ac400f0dcc);
+            
+        
+
+        marker_cc9ef9f28d215130f23167fc1d95fa7d.bindPopup(popup_4f7f628a0f1ccd5e7a3f5b14577443c1)
+        ;
+
+        
+    
+    
+            var marker_db0e1e38ba0ec04bbdcb2a3df80d6472 = L.marker(
+                [22.5334382, 88.3375956],
+                {}
+            ).addTo(map_442c956d0b6fef323f779c24a221bf2f);
+        
+    
+        var custom_icon_337397e15e48fb74d51be338b0168656 = L.icon({"iconSize": [20, 20], "iconUrl": "https://img.icons8.com/color/48/000000/hospital.png"});
+        marker_db0e1e38ba0ec04bbdcb2a3df80d6472.setIcon(custom_icon_337397e15e48fb74d51be338b0168656);
+        
+    
+        var popup_e3125c7ab7ce180d6e10c5cac00ed067 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_236148307dcd11b99457b6844ad7d6f5 = $(`<div id="html_236148307dcd11b99457b6844ad7d6f5" style="width: 100.0%; height: 100.0%;">Hospital Road, Bhowanipore, Kolkata, Kolkata District, West Bengal, 700027, India</div>`)[0];
+                popup_e3125c7ab7ce180d6e10c5cac00ed067.setContent(html_236148307dcd11b99457b6844ad7d6f5);
+            
+        
+
+        marker_db0e1e38ba0ec04bbdcb2a3df80d6472.bindPopup(popup_e3125c7ab7ce180d6e10c5cac00ed067)
+        ;
+
+        
+    
+    
+            var marker_a6e7fc81c0dc798104c913596a875274 = L.marker(
+                [22.5414835, 88.3402129],
+                {}
+            ).addTo(map_442c956d0b6fef323f779c24a221bf2f);
+        
+    
+        var custom_icon_1a458f2b54b80a28e2a6f05bc39119b4 = L.icon({"iconSize": [20, 20], "iconUrl": "https://img.icons8.com/color/48/000000/hospital.png"});
+        marker_a6e7fc81c0dc798104c913596a875274.setIcon(custom_icon_1a458f2b54b80a28e2a6f05bc39119b4);
+        
+    
+        var popup_0bb22402f04f466d70e8fda7276762e9 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_5affb3c1c84771c34669e7ebcddcb85b = $(`<div id="html_5affb3c1c84771c34669e7ebcddcb85b" style="width: 100.0%; height: 100.0%;">Hospital Road, Ho Chi Minh Sarani, Kolkata, Kolkata District, West Bengal, 700038, India</div>`)[0];
+                popup_0bb22402f04f466d70e8fda7276762e9.setContent(html_5affb3c1c84771c34669e7ebcddcb85b);
+            
+        
+
+        marker_a6e7fc81c0dc798104c913596a875274.bindPopup(popup_0bb22402f04f466d70e8fda7276762e9)
+        ;
+
+        
+    
+    
+            var marker_78ff2ec8fc1ca2e3e650046f63078a00 = L.marker(
+                [22.541908149999998, 88.34788112629577],
+                {}
+            ).addTo(map_442c956d0b6fef323f779c24a221bf2f);
+        
+    
+        var custom_icon_8a27ca744fb248531595f2f9981cd0c7 = L.icon({"iconSize": [20, 20], "iconUrl": "https://cdn2.vectorstock.com/i/1000x1000/45/11/shopping-mall-color-icon-vector-28494511.jpg"});
+        marker_78ff2ec8fc1ca2e3e650046f63078a00.setIcon(custom_icon_8a27ca744fb248531595f2f9981cd0c7);
+        
+    
+        var popup_a34e78446e59d8431109acf25338930d = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_beebc2476c386bd75be4bdeafcb62175 = $(`<div id="html_beebc2476c386bd75be4bdeafcb62175" style="width: 100.0%; height: 100.0%;">Horizon Building, Mall, Acharya Jagadish Chandra Bose Road, Ho Chi Minh Sarani, Kolkata, Kolkata District, West Bengal, 700020, India</div>`)[0];
+                popup_a34e78446e59d8431109acf25338930d.setContent(html_beebc2476c386bd75be4bdeafcb62175);
+            
+        
+
+        marker_78ff2ec8fc1ca2e3e650046f63078a00.bindPopup(popup_a34e78446e59d8431109acf25338930d)
+        ;
+
+        
+    
+    
+            var marker_7ef6511a4cd589dffe0f4078a968a99a = L.marker(
+                [22.5054448, 88.29400868673707],
+                {}
+            ).addTo(map_442c956d0b6fef323f779c24a221bf2f);
+        
+    
+        var custom_icon_0dbdaa7cb618b25fd4b6ae1a469fb159 = L.icon({"iconSize": [20, 20], "iconUrl": "https://img.icons8.com/color/48/000000/airport.png"});
+        marker_7ef6511a4cd589dffe0f4078a968a99a.setIcon(custom_icon_0dbdaa7cb618b25fd4b6ae1a469fb159);
+        
+    
+        var popup_fcee3d7a4d5becb0bfb3da2593efd476 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_18cb52cf11bd02aa0991749006808601 = $(`<div id="html_18cb52cf11bd02aa0991749006808601" style="width: 100.0%; height: 100.0%;">Behala Airport, Behala Flying Club Road, Kolkata, Kolkata District, West Bengal, 700060, India</div>`)[0];
+                popup_fcee3d7a4d5becb0bfb3da2593efd476.setContent(html_18cb52cf11bd02aa0991749006808601);
+            
+        
+
+        marker_7ef6511a4cd589dffe0f4078a968a99a.bindPopup(popup_fcee3d7a4d5becb0bfb3da2593efd476)
+        ;
+
+        
+    
+    
+            var marker_4d6b69cdbec033e4287b42fbc3ebb737 = L.marker(
+                [22.6564623, 88.44672447479577],
+                {}
+            ).addTo(map_442c956d0b6fef323f779c24a221bf2f);
+        
+    
+        var custom_icon_2c78150fa52d2b3e208f04c39a6414da = L.icon({"iconSize": [20, 20], "iconUrl": "https://img.icons8.com/color/48/000000/airport.png"});
+        marker_4d6b69cdbec033e4287b42fbc3ebb737.setIcon(custom_icon_2c78150fa52d2b3e208f04c39a6414da);
+        
+    
+        var popup_605a52dddd05b26db6b4266d7d0689ad = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_91a1eb8f2452049525ee1a08222f6a78 = $(`<div id="html_91a1eb8f2452049525ee1a08222f6a78" style="width: 100.0%; height: 100.0%;">Netaji Subhash Chandra Bose International Airport, Old Jessore Road, Madhyamgram, Barasat - II, North 24 Parganas District, West Bengal, 700132, India</div>`)[0];
+                popup_605a52dddd05b26db6b4266d7d0689ad.setContent(html_91a1eb8f2452049525ee1a08222f6a78);
+            
+        
+
+        marker_4d6b69cdbec033e4287b42fbc3ebb737.bindPopup(popup_605a52dddd05b26db6b4266d7d0689ad)
+        ;
+
+        
+    
+    
+            var marker_b3586fdd3b97fe60be8cf66e9265313b = L.marker(
+                [22.5688391, 88.3705185],
+                {}
+            ).addTo(map_442c956d0b6fef323f779c24a221bf2f);
+        
+    
+        var custom_icon_61c5e8fe075c1ccca1b52ce64db732e6 = L.icon({"iconSize": [20, 20], "iconUrl": "https://img.icons8.com/color/48/000000/train-station.png"});
+        marker_b3586fdd3b97fe60be8cf66e9265313b.setIcon(custom_icon_61c5e8fe075c1ccca1b52ce64db732e6);
+        
+    
+        var popup_6bb503e10b64e0304bf64856c715afdd = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_c7fe05f53d60a308ef59eae3b7993b6b = $(`<div id="html_c7fe05f53d60a308ef59eae3b7993b6b" style="width: 100.0%; height: 100.0%;">Railway Reservation Counter, AJC Bose Road (Sealdah Flyover), Baithakkhana, Kolkata, Kolkata District, West Bengal, 700009, India</div>`)[0];
+                popup_6bb503e10b64e0304bf64856c715afdd.setContent(html_c7fe05f53d60a308ef59eae3b7993b6b);
+            
+        
+
+        marker_b3586fdd3b97fe60be8cf66e9265313b.bindPopup(popup_6bb503e10b64e0304bf64856c715afdd)
+        ;
+
+        
+    
+    
+            var marker_0505e6d69b4f7b681b1be55b4c721a05 = L.marker(
+                [22.573137449999997, 88.36473551701067],
+                {}
+            ).addTo(map_442c956d0b6fef323f779c24a221bf2f);
+        
+    
+        var custom_icon_1417f0fba3f8002fb5ab3417dd92c9b0 = L.icon({"iconSize": [20, 20], "iconUrl": "https://img.icons8.com/color/48/000000/shop.png"});
+        marker_0505e6d69b4f7b681b1be55b4c721a05.setIcon(custom_icon_1417f0fba3f8002fb5ab3417dd92c9b0);
+        
+    
+        var popup_e04429cd328a6feb1b3781f5c71d00e1 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_ad61b3423077ad9e5c3f4c3dbb314167 = $(`<div id="html_ad61b3423077ad9e5c3f4c3dbb314167" style="width: 100.0%; height: 100.0%;">kolkata, Surya Sen Street, Tiretta Bazaar, Baithakkhana, Kolkata, Kolkata District, West Bengal, 700073, India</div>`)[0];
+                popup_e04429cd328a6feb1b3781f5c71d00e1.setContent(html_ad61b3423077ad9e5c3f4c3dbb314167);
+            
+        
+
+        marker_0505e6d69b4f7b681b1be55b4c721a05.bindPopup(popup_e04429cd328a6feb1b3781f5c71d00e1)
+        ;
+
+        
+    
+    
+            var marker_f368ca56abf6f9b2378d391e94a78330 = L.marker(
+                [22.5725398, 88.3524126],
+                {}
+            ).addTo(map_442c956d0b6fef323f779c24a221bf2f);
+        
+    
+        var custom_icon_dae769e21a536ade43e1e9a58aaf47d8 = L.icon({"iconSize": [20, 20], "iconUrl": "https://img.icons8.com/color/48/000000/shop.png"});
+        marker_f368ca56abf6f9b2378d391e94a78330.setIcon(custom_icon_dae769e21a536ade43e1e9a58aaf47d8);
+        
+    
+        var popup_e1ecc6e69ca2b7e72aabdc898cc4a1f8 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_8c0132a804f560301f64a044acdf38c1 = $(`<div id="html_8c0132a804f560301f64a044acdf38c1" style="width: 100.0%; height: 100.0%;">Kolkata, Lalbazar Street, Tiretta Bazaar, B. B. D. Bagh, Kolkata, Kolkata District, West Bengal, 700069, India</div>`)[0];
+                popup_e1ecc6e69ca2b7e72aabdc898cc4a1f8.setContent(html_8c0132a804f560301f64a044acdf38c1);
+            
+        
+
+        marker_f368ca56abf6f9b2378d391e94a78330.bindPopup(popup_e1ecc6e69ca2b7e72aabdc898cc4a1f8)
+        ;
+
+        
+    
+    
+            var marker_6b053610ba145e7456a643f80f555cf4 = L.marker(
+                [22.5465213, 88.387096],
+                {}
+            ).addTo(map_442c956d0b6fef323f779c24a221bf2f);
+        
+    
+        var custom_icon_4218a627259a609b3ee6bec4cd6054fd = L.icon({"iconSize": [20, 20], "iconUrl": "https://img.icons8.com/color/48/000000/restaurant.png"});
+        marker_6b053610ba145e7456a643f80f555cf4.setIcon(custom_icon_4218a627259a609b3ee6bec4cd6054fd);
+        
+    
+        var popup_5e67c9408758a2c4ce0e7280a43acd61 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_30b460938382d322849db860f4814d75 = $(`<div id="html_30b460938382d322849db860f4814d75" style="width: 100.0%; height: 100.0%;">Beijing Restaurant, 105, Topsia North Road, Tangra North, Kolkata, Kolkata District, West Bengal, 700046, India</div>`)[0];
+                popup_5e67c9408758a2c4ce0e7280a43acd61.setContent(html_30b460938382d322849db860f4814d75);
+            
+        
+
+        marker_6b053610ba145e7456a643f80f555cf4.bindPopup(popup_5e67c9408758a2c4ce0e7280a43acd61)
+        ;
+
+        
+    
+    
+            var marker_7e9450ac49754ca092e457af5063d386 = L.marker(
+                [22.5672276, 88.3709187],
+                {}
+            ).addTo(map_442c956d0b6fef323f779c24a221bf2f);
+        
+    
+        var custom_icon_9e1ed6b9da8e03bd76a3a96e1439e2a2 = L.icon({"iconSize": [20, 20], "iconUrl": "https://img.icons8.com/color/48/000000/restaurant.png"});
+        marker_7e9450ac49754ca092e457af5063d386.setIcon(custom_icon_9e1ed6b9da8e03bd76a3a96e1439e2a2);
+        
+    
+        var popup_683ff466dc97baba77189c9f9ec1d242 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_a1d36e00f0bb5f1b786de7e493bb1e22 = $(`<div id="html_a1d36e00f0bb5f1b786de7e493bb1e22" style="width: 100.0%; height: 100.0%;">IRCTC RESTAURANT CUM FOOD PLAZA (SEALDAH), Bepin Behari Ganguly Street, Sealdah, Kolkata, Kolkata District, West Bengal, 700009, India</div>`)[0];
+                popup_683ff466dc97baba77189c9f9ec1d242.setContent(html_a1d36e00f0bb5f1b786de7e493bb1e22);
+            
+        
+
+        marker_7e9450ac49754ca092e457af5063d386.bindPopup(popup_683ff466dc97baba77189c9f9ec1d242)
+        ;
+
+        
+    
+    
+            var marker_585226285b8684df217a089b7139757c = L.marker(
+                [22.5988571, 88.3726721],
+                {}
+            ).addTo(map_442c956d0b6fef323f779c24a221bf2f);
+        
+    
+        var custom_icon_978f99b075098e7fbf0279ba78115fe2 = L.icon({"iconSize": [20, 20], "iconUrl": "https://img.icons8.com/color/48/000000/restaurant.png"});
+        marker_585226285b8684df217a089b7139757c.setIcon(custom_icon_978f99b075098e7fbf0279ba78115fe2);
+        
+    
+        var popup_4dbc06fc719b656115693cff79e5ee07 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_bb1e0442be5c8191ac7cce47239426d3 = $(`<div id="html_bb1e0442be5c8191ac7cce47239426d3" style="width: 100.0%; height: 100.0%;">Aminia Restaurant, 94, Bidhan Sarani, Shyam Bazar, Kolkata, Kolkata District, West Bengal, 700004, India</div>`)[0];
+                popup_4dbc06fc719b656115693cff79e5ee07.setContent(html_bb1e0442be5c8191ac7cce47239426d3);
+            
+        
+
+        marker_585226285b8684df217a089b7139757c.bindPopup(popup_4dbc06fc719b656115693cff79e5ee07)
+        ;
+
+        
+    
+    
+            var marker_e7b2a96f4aa3b570302429d02b8410ac = L.marker(
+                [22.5388442, 88.3222081],
+                {}
+            ).addTo(map_442c956d0b6fef323f779c24a221bf2f);
+        
+    
+        var custom_icon_bdf99f1ab9ac68f2664de0e3d7f154ee = L.icon({"iconSize": [20, 20], "iconUrl": "https://img.icons8.com/color/48/000000/restaurant.png"});
+        marker_e7b2a96f4aa3b570302429d02b8410ac.setIcon(custom_icon_bdf99f1ab9ac68f2664de0e3d7f154ee);
+        
+    
+        var popup_d538add57e562e9f89d868f5e3c9891a = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_5db1d54a3cf9813d727efaad3019850d = $(`<div id="html_5db1d54a3cf9813d727efaad3019850d" style="width: 100.0%; height: 100.0%;">India Restaurant, 34, Karl Marx Sarani, BNR South Colony, Watganj, Kolkata, Kolkata District, West Bengal, 700023, India</div>`)[0];
+                popup_d538add57e562e9f89d868f5e3c9891a.setContent(html_5db1d54a3cf9813d727efaad3019850d);
+            
+        
+
+        marker_e7b2a96f4aa3b570302429d02b8410ac.bindPopup(popup_d538add57e562e9f89d868f5e3c9891a)
+        ;
+
+        
+    
+    
+            var marker_3e4dff76dbccceb731992ec25c0c4675 = L.marker(
+                [22.5388656, 88.3224118],
+                {}
+            ).addTo(map_442c956d0b6fef323f779c24a221bf2f);
+        
+    
+        var custom_icon_85742e72464947071e923523b504cf52 = L.icon({"iconSize": [20, 20], "iconUrl": "https://img.icons8.com/color/48/000000/restaurant.png"});
+        marker_3e4dff76dbccceb731992ec25c0c4675.setIcon(custom_icon_85742e72464947071e923523b504cf52);
+        
+    
+        var popup_099bd032e5bb659d0e2529fe20bc4a75 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_383708b23d18998f4c01946db2250483 = $(`<div id="html_383708b23d18998f4c01946db2250483" style="width: 100.0%; height: 100.0%;">Sheesh Mahal Restaurant, 28, Karl Marx Sarani, BNR South Colony, Watganj, Kolkata, Kolkata District, West Bengal, 700023, India</div>`)[0];
+                popup_099bd032e5bb659d0e2529fe20bc4a75.setContent(html_383708b23d18998f4c01946db2250483);
+            
+        
+
+        marker_3e4dff76dbccceb731992ec25c0c4675.bindPopup(popup_099bd032e5bb659d0e2529fe20bc4a75)
+        ;
+
+        
+    
+    
+            var marker_daad604ff4b58f6a756fccbebb0a6a6a = L.marker(
+                [22.4949606, 88.36979812220395],
+                {}
+            ).addTo(map_442c956d0b6fef323f779c24a221bf2f);
+        
+    
+        var custom_icon_9c77ea1002119470e3abe15eb43e41e2 = L.icon({"iconSize": [20, 20], "iconUrl": "https://img.icons8.com/color/48/000000/restaurant.png"});
+        marker_daad604ff4b58f6a756fccbebb0a6a6a.setIcon(custom_icon_9c77ea1002119470e3abe15eb43e41e2);
+        
+    
+        var popup_c11783cf348d8d6018db5d98b3cd3d25 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_9edfd31ffeb7332e7b5e83dc8c7986dd = $(`<div id="html_9edfd31ffeb7332e7b5e83dc8c7986dd" style="width: 100.0%; height: 100.0%;">Banzara A. C. Restaurant, 86, Ibrahimpur Road, Jadavpur, Kolkata, Kolkata District, West Bengal, 700032, India</div>`)[0];
+                popup_c11783cf348d8d6018db5d98b3cd3d25.setContent(html_9edfd31ffeb7332e7b5e83dc8c7986dd);
+            
+        
+
+        marker_daad604ff4b58f6a756fccbebb0a6a6a.bindPopup(popup_c11783cf348d8d6018db5d98b3cd3d25)
+        ;
+
+        
+    
+    
+            var marker_fcde55ab78dcfd781a6b5d2fc6263ee8 = L.marker(
+                [22.5412729, 88.347365],
+                {}
+            ).addTo(map_442c956d0b6fef323f779c24a221bf2f);
+        
+    
+        var custom_icon_8920adab35422b048eb150b7054047db = L.icon({"iconSize": [20, 20], "iconUrl": "https://img.icons8.com/color/48/000000/restaurant.png"});
+        marker_fcde55ab78dcfd781a6b5d2fc6263ee8.setIcon(custom_icon_8920adab35422b048eb150b7054047db);
+        
+    
+        var popup_d202d30795f54d6264895f962aa0ee41 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_8204849d5292e3e418892175b9b1e227 = $(`<div id="html_8204849d5292e3e418892175b9b1e227" style="width: 100.0%; height: 100.0%;">Saima Restaurant, Zudio, Ashutosh Mukhejee Road, Bhowanipore, Kolkata, Kolkata District, West Bengal, 700020, India</div>`)[0];
+                popup_d202d30795f54d6264895f962aa0ee41.setContent(html_8204849d5292e3e418892175b9b1e227);
+            
+        
+
+        marker_fcde55ab78dcfd781a6b5d2fc6263ee8.bindPopup(popup_d202d30795f54d6264895f962aa0ee41)
+        ;
+
+        
+    
+    
+            var marker_095c156c1cbc260243a63101d02719a9 = L.marker(
+                [22.5624082, 88.3524888],
+                {}
+            ).addTo(map_442c956d0b6fef323f779c24a221bf2f);
+        
+    
+        var custom_icon_ce4ee6788f2e02dd7aedac89fadb3476 = L.icon({"iconSize": [20, 20], "iconUrl": "https://img.icons8.com/color/48/000000/restaurant.png"});
+        marker_095c156c1cbc260243a63101d02719a9.setIcon(custom_icon_ce4ee6788f2e02dd7aedac89fadb3476);
+        
+    
+        var popup_4c3d7b056cb1b1a6ba5f80a36720f30d = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_e8925cd2bb161baff22b88e9359d8484 = $(`<div id="html_e8925cd2bb161baff22b88e9359d8484" style="width: 100.0%; height: 100.0%;">Tiwari Pure Vegetarian Restaurant, Bertram Street, Dharmatala, Kolkata, Kolkata District, West Bengal, 700001, India</div>`)[0];
+                popup_4c3d7b056cb1b1a6ba5f80a36720f30d.setContent(html_e8925cd2bb161baff22b88e9359d8484);
+            
+        
+
+        marker_095c156c1cbc260243a63101d02719a9.bindPopup(popup_4c3d7b056cb1b1a6ba5f80a36720f30d)
+        ;
+
+        
+    
+    
+            var marker_91467adca1c66081b34f198f7545fb3f = L.marker(
+                [22.5580809, 88.3539162],
+                {}
+            ).addTo(map_442c956d0b6fef323f779c24a221bf2f);
+        
+    
+        var custom_icon_18569135fed07e3d8332ad1b8397a5b0 = L.icon({"iconSize": [20, 20], "iconUrl": "https://img.icons8.com/color/48/000000/restaurant.png"});
+        marker_91467adca1c66081b34f198f7545fb3f.setIcon(custom_icon_18569135fed07e3d8332ad1b8397a5b0);
+        
+    
+        var popup_00c7bfefd360fa3dc3aa7fecd2de2722 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_31427c186b90c94a44e9d25c836baca1 = $(`<div id="html_31427c186b90c94a44e9d25c836baca1" style="width: 100.0%; height: 100.0%;">Taj Continental Restaurant, Sudder Street, Dharmatala, Kolkata, Kolkata District, West Bengal, 700087, India</div>`)[0];
+                popup_00c7bfefd360fa3dc3aa7fecd2de2722.setContent(html_31427c186b90c94a44e9d25c836baca1);
+            
+        
+
+        marker_91467adca1c66081b34f198f7545fb3f.bindPopup(popup_00c7bfefd360fa3dc3aa7fecd2de2722)
+        ;
+
+        
+    
+    
+            var marker_a3129d892cb9effe56ff4270f910390b = L.marker(
+                [22.5569289, 88.3547528],
+                {}
+            ).addTo(map_442c956d0b6fef323f779c24a221bf2f);
+        
+    
+        var custom_icon_1169df8d4ef77bf4568b0ad8f65b08d4 = L.icon({"iconSize": [20, 20], "iconUrl": "https://img.icons8.com/color/48/000000/restaurant.png"});
+        marker_a3129d892cb9effe56ff4270f910390b.setIcon(custom_icon_1169df8d4ef77bf4568b0ad8f65b08d4);
+        
+    
+        var popup_3f6eb9d9b094a8183831aabe536c2777 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_66e44eabd7f2a42f5825eab35406898c = $(`<div id="html_66e44eabd7f2a42f5825eab35406898c" style="width: 100.0%; height: 100.0%;">Radhuni Restaurant, 17G, Mirza Ghalib Street, New Market, Kolkata, Kolkata District, West Bengal, 700016, India</div>`)[0];
+                popup_3f6eb9d9b094a8183831aabe536c2777.setContent(html_66e44eabd7f2a42f5825eab35406898c);
+            
+        
+
+        marker_a3129d892cb9effe56ff4270f910390b.bindPopup(popup_3f6eb9d9b094a8183831aabe536c2777)
+        ;
+
+        
+    
+    
+            var circle_marker_641943cd17f8e64af3218a77504968ec = L.circleMarker(
+                [22.610634788888888, 88.40884113333333],
+                {"bubblingMouseEvents": true, "color": "rgba(255, 0, 0, 1)", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "rgba(255, 0, 0, 0.6)", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_442c956d0b6fef323f779c24a221bf2f);
+        
+    
+        var popup_bf6235fb913c1be2dfbb52ac71ed0090 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_c5d015f013c2d0f1aa073f10f9818c4b = $(`<div id="html_c5d015f013c2d0f1aa073f10f9818c4b" style="width: 100.0%; height: 100.0%;">Rank: 1 Score:-68.65031319319155 Cluster ID:0</div>`)[0];
+                popup_bf6235fb913c1be2dfbb52ac71ed0090.setContent(html_c5d015f013c2d0f1aa073f10f9818c4b);
+            
+        
+
+        circle_marker_641943cd17f8e64af3218a77504968ec.bindPopup(popup_bf6235fb913c1be2dfbb52ac71ed0090)
+        ;
+
+        
+    
+    
+            var circle_marker_ebfae3ad3bc2c07bd0f95c893d1e9e60 = L.circleMarker(
+                [22.622768122222222, 88.40364217499999],
+                {"bubblingMouseEvents": true, "color": "rgba(255, 0, 0, 1)", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "rgba(255, 0, 0, 0.6)", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_442c956d0b6fef323f779c24a221bf2f);
+        
+    
+        var popup_ad8d706b9a00efe499f6971c0948b00a = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_ef4b45becc8d6417c0906d1d4eee3dbc = $(`<div id="html_ef4b45becc8d6417c0906d1d4eee3dbc" style="width: 100.0%; height: 100.0%;">Rank: 2 Score:-69.74099763105735 Cluster ID:0</div>`)[0];
+                popup_ad8d706b9a00efe499f6971c0948b00a.setContent(html_ef4b45becc8d6417c0906d1d4eee3dbc);
+            
+        
+
+        circle_marker_ebfae3ad3bc2c07bd0f95c893d1e9e60.bindPopup(popup_ad8d706b9a00efe499f6971c0948b00a)
+        ;
+
+        
+    
+    
+            var circle_marker_b8e21c6a0af7b3dff68fae2971b5fa8e = L.circleMarker(
+                [22.604391579012347, 88.41228847129629],
+                {"bubblingMouseEvents": true, "color": "rgba(255, 0, 0, 1)", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "rgba(255, 0, 0, 0.6)", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_442c956d0b6fef323f779c24a221bf2f);
+        
+    
+        var popup_40cc74a6ddd8d9f45ec96f1672ef6e6e = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_5613f2009389a213de7053c610af350e = $(`<div id="html_5613f2009389a213de7053c610af350e" style="width: 100.0%; height: 100.0%;">Rank: 3 Score:-70.09615196711476 Cluster ID:0</div>`)[0];
+                popup_40cc74a6ddd8d9f45ec96f1672ef6e6e.setContent(html_5613f2009389a213de7053c610af350e);
+            
+        
+
+        circle_marker_b8e21c6a0af7b3dff68fae2971b5fa8e.bindPopup(popup_40cc74a6ddd8d9f45ec96f1672ef6e6e)
+        ;
+
+        
+    
+    
+            var circle_marker_bca9046cf41017e7e9e05c0fe7b944b3 = L.circleMarker(
+                [22.619012566666665, 88.41253071666667],
+                {"bubblingMouseEvents": true, "color": "rgba(255, 0, 0, 1)", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "rgba(255, 0, 0, 0.6)", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_442c956d0b6fef323f779c24a221bf2f);
+        
+    
+        var popup_59cbce491087b6b45a80d5863b08ccec = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_86a1d3e45000040d83efdf623e6ea94e = $(`<div id="html_86a1d3e45000040d83efdf623e6ea94e" style="width: 100.0%; height: 100.0%;">Rank: 4 Score:-74.51577186557161 Cluster ID:0</div>`)[0];
+                popup_59cbce491087b6b45a80d5863b08ccec.setContent(html_86a1d3e45000040d83efdf623e6ea94e);
+            
+        
+
+        circle_marker_bca9046cf41017e7e9e05c0fe7b944b3.bindPopup(popup_59cbce491087b6b45a80d5863b08ccec)
+        ;
+
+        
+    
+    
+            var circle_marker_cf03b00968e8c885179eb07a13ce8323 = L.circleMarker(
+                [22.605616112765958, 88.41722655],
+                {"bubblingMouseEvents": true, "color": "rgba(255, 0, 0, 1)", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "rgba(255, 0, 0, 0.6)", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_442c956d0b6fef323f779c24a221bf2f);
+        
+    
+        var popup_41ab79d73d1b8bac63247689c39850fa = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_ca4a97bc6ad8271e7322c8f3280ea015 = $(`<div id="html_ca4a97bc6ad8271e7322c8f3280ea015" style="width: 100.0%; height: 100.0%;">Rank: 5 Score:-78.05311526797475 Cluster ID:0</div>`)[0];
+                popup_41ab79d73d1b8bac63247689c39850fa.setContent(html_ca4a97bc6ad8271e7322c8f3280ea015);
+            
+        
+
+        circle_marker_cf03b00968e8c885179eb07a13ce8323.bindPopup(popup_41ab79d73d1b8bac63247689c39850fa)
+        ;
+
+        
+    
+    
+            var circle_marker_ed542989fc67a58c91dc73fa883863cf = L.circleMarker(
+                [22.609407011111113, 88.42577967499999],
+                {"bubblingMouseEvents": true, "color": "rgba(255, 0, 0, 1)", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "rgba(255, 0, 0, 0.6)", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_442c956d0b6fef323f779c24a221bf2f);
+        
+    
+        var popup_e40b3ff0e0ae0922f18696db4b1157e7 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_fe3e30a2b43127938e6c242390eccdd9 = $(`<div id="html_fe3e30a2b43127938e6c242390eccdd9" style="width: 100.0%; height: 100.0%;">Rank: 6 Score:-86.46875058183589 Cluster ID:0</div>`)[0];
+                popup_e40b3ff0e0ae0922f18696db4b1157e7.setContent(html_fe3e30a2b43127938e6c242390eccdd9);
+            
+        
+
+        circle_marker_ed542989fc67a58c91dc73fa883863cf.bindPopup(popup_e40b3ff0e0ae0922f18696db4b1157e7)
+        ;
+
+        
+    
+    
+            var circle_marker_578ee276d1bcdc620219d16a449b8659 = L.circleMarker(
+                [22.60350886296296, 88.42622689722222],
+                {"bubblingMouseEvents": true, "color": "rgba(255, 0, 0, 1)", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "rgba(255, 0, 0, 0.6)", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_442c956d0b6fef323f779c24a221bf2f);
+        
+    
+        var popup_bc97acf03ce9dfe435cee389f7b48495 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_34042748248004172d8ac1922a2809f3 = $(`<div id="html_34042748248004172d8ac1922a2809f3" style="width: 100.0%; height: 100.0%;">Rank: 7 Score:-88.43065761602293 Cluster ID:0</div>`)[0];
+                popup_bc97acf03ce9dfe435cee389f7b48495.setContent(html_34042748248004172d8ac1922a2809f3);
+            
+        
+
+        circle_marker_578ee276d1bcdc620219d16a449b8659.bindPopup(popup_bc97acf03ce9dfe435cee389f7b48495)
+        ;
+
+        
+    
+    
+            var circle_marker_99f252c8065826b25f42b8df27915993 = L.circleMarker(
+                [22.56816812222222, 88.32481925833332],
+                {"bubblingMouseEvents": true, "color": "rgba(0, 255, 0, 1)", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "rgba(0, 255, 0, 0.6)", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_442c956d0b6fef323f779c24a221bf2f);
+        
+    
+        var popup_3c63f8e248c47dac269d892b41cdfa36 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_284f5bcf050a68584454df82925fe6ec = $(`<div id="html_284f5bcf050a68584454df82925fe6ec" style="width: 100.0%; height: 100.0%;">Rank: 1 Score:-53.62216909297845 Cluster ID:1</div>`)[0];
+                popup_3c63f8e248c47dac269d892b41cdfa36.setContent(html_284f5bcf050a68584454df82925fe6ec);
+            
+        
+
+        circle_marker_99f252c8065826b25f42b8df27915993.bindPopup(popup_3c63f8e248c47dac269d892b41cdfa36)
+        ;
+
+        
+    
+    
+            var circle_marker_62c3d87c8e9c472361823c1fcdf7cecb = L.circleMarker(
+                [22.567590344444444, 88.312073425],
+                {"bubblingMouseEvents": true, "color": "rgba(0, 255, 0, 1)", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "rgba(0, 255, 0, 0.6)", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_442c956d0b6fef323f779c24a221bf2f);
+        
+    
+        var popup_130377d7c14879f3bc472fa855747f6c = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_9c6a5529245f2da4c74aadd2f1e5d163 = $(`<div id="html_9c6a5529245f2da4c74aadd2f1e5d163" style="width: 100.0%; height: 100.0%;">Rank: 2 Score:-68.33856930470448 Cluster ID:1</div>`)[0];
+                popup_130377d7c14879f3bc472fa855747f6c.setContent(html_9c6a5529245f2da4c74aadd2f1e5d163);
+            
+        
+
+        circle_marker_62c3d87c8e9c472361823c1fcdf7cecb.bindPopup(popup_130377d7c14879f3bc472fa855747f6c)
+        ;
+
+        
+    
+    
+            var circle_marker_3bfaf4de0c2823d935d194708defcc9c = L.circleMarker(
+                [22.57755701111111, 88.26117394583332],
+                {"bubblingMouseEvents": true, "color": "rgba(0, 255, 0, 1)", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "rgba(0, 255, 0, 0.6)", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_442c956d0b6fef323f779c24a221bf2f);
+        
+    
+        var popup_477678f1bb9576f660587c36daaa5bd1 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_bb71405a6dc805c188bb9a3e49b573ff = $(`<div id="html_bb71405a6dc805c188bb9a3e49b573ff" style="width: 100.0%; height: 100.0%;">Rank: 3 Score:-139.16486677790903 Cluster ID:1</div>`)[0];
+                popup_477678f1bb9576f660587c36daaa5bd1.setContent(html_bb71405a6dc805c188bb9a3e49b573ff);
+            
+        
+
+        circle_marker_3bfaf4de0c2823d935d194708defcc9c.bindPopup(popup_477678f1bb9576f660587c36daaa5bd1)
+        ;
+
+        
+    
+    
+            var circle_marker_e716f065f5d1feb120d204fdd6266679 = L.circleMarker(
+                [22.56612705942029, 88.3700203],
+                {"bubblingMouseEvents": true, "color": "rgba(255, 0, 255, 1)", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "rgba(255, 0, 255, 0.6)", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_442c956d0b6fef323f779c24a221bf2f);
+        
+    
+        var popup_e5ce2b0211158456d9b2496f1215f6bb = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_8ab3e00f6f8e7ff4d82ec29a34b7aa09 = $(`<div id="html_8ab3e00f6f8e7ff4d82ec29a34b7aa09" style="width: 100.0%; height: 100.0%;">Rank: 1 Score:-5.788189455012564 Cluster ID:4</div>`)[0];
+                popup_e5ce2b0211158456d9b2496f1215f6bb.setContent(html_8ab3e00f6f8e7ff4d82ec29a34b7aa09);
+            
+        
+
+        circle_marker_e716f065f5d1feb120d204fdd6266679.bindPopup(popup_e5ce2b0211158456d9b2496f1215f6bb)
+        ;
+
+        
+    
+    
+            var circle_marker_811947262ab3dcd544b2b53e7c5715b2 = L.circleMarker(
+                [22.569468122222222, 88.36909425833332],
+                {"bubblingMouseEvents": true, "color": "rgba(255, 0, 255, 1)", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "rgba(255, 0, 255, 0.6)", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_442c956d0b6fef323f779c24a221bf2f);
+        
+    
+        var popup_5906b45cee6e1922717f6881038b01b2 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_16fdc7ef5982e685f56c7e13a1078854 = $(`<div id="html_16fdc7ef5982e685f56c7e13a1078854" style="width: 100.0%; height: 100.0%;">Rank: 2 Score:-8.352475867909321 Cluster ID:4</div>`)[0];
+                popup_5906b45cee6e1922717f6881038b01b2.setContent(html_16fdc7ef5982e685f56c7e13a1078854);
+            
+        
+
+        circle_marker_811947262ab3dcd544b2b53e7c5715b2.bindPopup(popup_5906b45cee6e1922717f6881038b01b2)
+        ;
+
+        
+    
+    
+            var circle_marker_1da70a7b430b182f2e2c3eb3a1b784d4 = L.circleMarker(
+                [22.576112566666666, 88.36590779999999],
+                {"bubblingMouseEvents": true, "color": "rgba(255, 0, 255, 1)", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "rgba(255, 0, 255, 0.6)", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_442c956d0b6fef323f779c24a221bf2f);
+        
+    
+        var popup_ed27de2cb6b37b181a2bee4d4013ed43 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_1e8a2c9d8faaab381c8a14cb716b223b = $(`<div id="html_1e8a2c9d8faaab381c8a14cb716b223b" style="width: 100.0%; height: 100.0%;">Rank: 3 Score:-10.759184294490709 Cluster ID:4</div>`)[0];
+                popup_ed27de2cb6b37b181a2bee4d4013ed43.setContent(html_1e8a2c9d8faaab381c8a14cb716b223b);
+            
+        
+
+        circle_marker_1da70a7b430b182f2e2c3eb3a1b784d4.bindPopup(popup_ed27de2cb6b37b181a2bee4d4013ed43)
+        ;
+
+        
+    
+    
+            var circle_marker_3a08f4d1a24ef96e95909ecaa43b8bd2 = L.circleMarker(
+                [22.570768122222223, 88.35618071666666],
+                {"bubblingMouseEvents": true, "color": "rgba(255, 0, 255, 1)", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "rgba(255, 0, 255, 0.6)", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_442c956d0b6fef323f779c24a221bf2f);
+        
+    
+        var popup_f82cd71d801b18275dde60330f1bb204 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_2d1294e337a6e0adbca15e2770ff3136 = $(`<div id="html_2d1294e337a6e0adbca15e2770ff3136" style="width: 100.0%; height: 100.0%;">Rank: 4 Score:-12.453219200177916 Cluster ID:4</div>`)[0];
+                popup_f82cd71d801b18275dde60330f1bb204.setContent(html_2d1294e337a6e0adbca15e2770ff3136);
+            
+        
+
+        circle_marker_3a08f4d1a24ef96e95909ecaa43b8bd2.bindPopup(popup_f82cd71d801b18275dde60330f1bb204)
+        ;
+
+        
+    
+    
+            var circle_marker_af0bc5301a4e7acf5d5e8d8e3546af9b = L.circleMarker(
+                [22.562679233333334, 88.35316196666666],
+                {"bubblingMouseEvents": true, "color": "rgba(255, 0, 255, 1)", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "rgba(255, 0, 255, 0.6)", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_442c956d0b6fef323f779c24a221bf2f);
+        
+    
+        var popup_b8bc281e512072ca00a29adc3d18134b = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_ea7880940d435bd865ebf06c31eaff3d = $(`<div id="html_ea7880940d435bd865ebf06c31eaff3d" style="width: 100.0%; height: 100.0%;">Rank: 5 Score:-13.867646526933752 Cluster ID:4</div>`)[0];
+                popup_b8bc281e512072ca00a29adc3d18134b.setContent(html_ea7880940d435bd865ebf06c31eaff3d);
+            
+        
+
+        circle_marker_af0bc5301a4e7acf5d5e8d8e3546af9b.bindPopup(popup_b8bc281e512072ca00a29adc3d18134b)
+        ;
+
+        
+    
+    
+            var circle_marker_a9e61f3840e30b4c4d3dd94a824e5ad7 = L.circleMarker(
+                [22.55646812222222, 88.36233002222221],
+                {"bubblingMouseEvents": true, "color": "rgba(255, 0, 255, 1)", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "rgba(255, 0, 255, 0.6)", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_442c956d0b6fef323f779c24a221bf2f);
+        
+    
+        var popup_9033695f3d9d5cfb4556b20d57a91950 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_1ed066db834c657f527568be2e502b6f = $(`<div id="html_1ed066db834c657f527568be2e502b6f" style="width: 100.0%; height: 100.0%;">Rank: 6 Score:-20.87432085959916 Cluster ID:4</div>`)[0];
+                popup_9033695f3d9d5cfb4556b20d57a91950.setContent(html_1ed066db834c657f527568be2e502b6f);
+            
+        
+
+        circle_marker_a9e61f3840e30b4c4d3dd94a824e5ad7.bindPopup(popup_9033695f3d9d5cfb4556b20d57a91950)
+        ;
+
+        
+    
+    
+            var circle_marker_477bbdc7054c4a9f07786a4ae2b6e791 = L.circleMarker(
+                [22.558952566666665, 88.35054571666666],
+                {"bubblingMouseEvents": true, "color": "rgba(255, 0, 255, 1)", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "rgba(255, 0, 255, 0.6)", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_442c956d0b6fef323f779c24a221bf2f);
+        
+    
+        var popup_6da90365d5c658e703d441a29d55d4ec = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_fc5e17b407f6f18e8125d6c476de6393 = $(`<div id="html_fc5e17b407f6f18e8125d6c476de6393" style="width: 100.0%; height: 100.0%;">Rank: 7 Score:-21.0721529513467 Cluster ID:4</div>`)[0];
+                popup_6da90365d5c658e703d441a29d55d4ec.setContent(html_fc5e17b407f6f18e8125d6c476de6393);
+            
+        
+
+        circle_marker_477bbdc7054c4a9f07786a4ae2b6e791.bindPopup(popup_6da90365d5c658e703d441a29d55d4ec)
+        ;
+
+        
+    
+    
+            var circle_marker_eff402d4bc68dddf17d65b4dce67281f = L.circleMarker(
+                [22.642701455555557, 88.379492175],
+                {"bubblingMouseEvents": true, "color": "rgba(128, 0, 128, 1)", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "rgba(128, 0, 128, 0.6)", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_442c956d0b6fef323f779c24a221bf2f);
+        
+    
+        var popup_1c5aa0aa17ace314ee4b828eb4382934 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_af941b04898930dfe474ec1653f492d1 = $(`<div id="html_af941b04898930dfe474ec1653f492d1" style="width: 100.0%; height: 100.0%;">Rank: 1 Score:-86.55186870640657 Cluster ID:6</div>`)[0];
+                popup_1c5aa0aa17ace314ee4b828eb4382934.setContent(html_af941b04898930dfe474ec1653f492d1);
+            
+        
+
+        circle_marker_eff402d4bc68dddf17d65b4dce67281f.bindPopup(popup_1c5aa0aa17ace314ee4b828eb4382934)
+        ;
+
+        
+    
+    
+            var circle_marker_b877c98a5bbf2cdf69778f3324bef443 = L.circleMarker(
+                [22.660107011111112, 88.35131717499999],
+                {"bubblingMouseEvents": true, "color": "rgba(128, 0, 128, 1)", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "rgba(128, 0, 128, 0.6)", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_442c956d0b6fef323f779c24a221bf2f);
+        
+    
+        var popup_555a8ef498fbb5a54436d295ad30a311 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_63b3d0f65c0cd48ce03cd1e81437cee6 = $(`<div id="html_63b3d0f65c0cd48ce03cd1e81437cee6" style="width: 100.0%; height: 100.0%;">Rank: 2 Score:-126.48895474763464 Cluster ID:6</div>`)[0];
+                popup_555a8ef498fbb5a54436d295ad30a311.setContent(html_63b3d0f65c0cd48ce03cd1e81437cee6);
+            
+        
+
+        circle_marker_b877c98a5bbf2cdf69778f3324bef443.bindPopup(popup_555a8ef498fbb5a54436d295ad30a311)
+        ;
+
+        
+    
+    
+            var circle_marker_89202d93d6e644934ae6ad8ab45a85af = L.circleMarker(
+                [22.543468122222222, 88.35375826296296],
+                {"bubblingMouseEvents": true, "color": "rgba(0, 128, 0, 1)", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "rgba(0, 128, 0, 0.6)", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_442c956d0b6fef323f779c24a221bf2f);
+        
+    
+        var popup_1e386febb5f9ffc2483f0ab33f1a0af0 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_82782fd6d0f4eec12ab35d9ef98ffa81 = $(`<div id="html_82782fd6d0f4eec12ab35d9ef98ffa81" style="width: 100.0%; height: 100.0%;">Rank: 1 Score:-33.77478629678684 Cluster ID:9</div>`)[0];
+                popup_1e386febb5f9ffc2483f0ab33f1a0af0.setContent(html_82782fd6d0f4eec12ab35d9ef98ffa81);
+            
+        
+
+        circle_marker_89202d93d6e644934ae6ad8ab45a85af.bindPopup(popup_1e386febb5f9ffc2483f0ab33f1a0af0)
+        ;
+
+        
+    
+    
+            var circle_marker_dad8f6eb1709f410bbc05f1e3aac8b3e = L.circleMarker(
+                [22.540521455555556, 88.35960196666666],
+                {"bubblingMouseEvents": true, "color": "rgba(0, 128, 0, 1)", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "rgba(0, 128, 0, 0.6)", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_442c956d0b6fef323f779c24a221bf2f);
+        
+    
+        var popup_5073248c19cb46c6f777fb522b6f22b4 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_24f7c3b73d4d1efa4a45d361912a713b = $(`<div id="html_24f7c3b73d4d1efa4a45d361912a713b" style="width: 100.0%; height: 100.0%;">Rank: 2 Score:-40.582875230850235 Cluster ID:9</div>`)[0];
+                popup_5073248c19cb46c6f777fb522b6f22b4.setContent(html_24f7c3b73d4d1efa4a45d361912a713b);
+            
+        
+
+        circle_marker_dad8f6eb1709f410bbc05f1e3aac8b3e.bindPopup(popup_5073248c19cb46c6f777fb522b6f22b4)
+        ;
+
+        
+    
+    
+            var circle_marker_819cbb54cad8dc2e203e0ba90a74209c = L.circleMarker(
+                [22.525099603703705, 88.34424547361111],
+                {"bubblingMouseEvents": true, "color": "rgba(0, 128, 0, 1)", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "rgba(0, 128, 0, 0.6)", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_442c956d0b6fef323f779c24a221bf2f);
+        
+    
+        var popup_ca96eff4357c659be986bfb09abe6771 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_54eb5df6657ca8597aa8be7f14035e16 = $(`<div id="html_54eb5df6657ca8597aa8be7f14035e16" style="width: 100.0%; height: 100.0%;">Rank: 3 Score:-44.44640717004486 Cluster ID:9</div>`)[0];
+                popup_ca96eff4357c659be986bfb09abe6771.setContent(html_54eb5df6657ca8597aa8be7f14035e16);
+            
+        
+
+        circle_marker_819cbb54cad8dc2e203e0ba90a74209c.bindPopup(popup_ca96eff4357c659be986bfb09abe6771)
+        ;
+
+        
+    
+    
+            var circle_marker_b92c47e51ac8fd4768d7b4c4188b4fbb = L.circleMarker(
+                [22.53757478888889, 88.3638953],
+                {"bubblingMouseEvents": true, "color": "rgba(0, 128, 0, 1)", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "rgba(0, 128, 0, 0.6)", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_442c956d0b6fef323f779c24a221bf2f);
+        
+    
+        var popup_7efdbec1c8efcc0e50a7ef112236f2cc = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_22871816041f47abc4404c735993354b = $(`<div id="html_22871816041f47abc4404c735993354b" style="width: 100.0%; height: 100.0%;">Rank: 4 Score:-46.78744515127934 Cluster ID:9</div>`)[0];
+                popup_7efdbec1c8efcc0e50a7ef112236f2cc.setContent(html_22871816041f47abc4404c735993354b);
+            
+        
+
+        circle_marker_b92c47e51ac8fd4768d7b4c4188b4fbb.bindPopup(popup_7efdbec1c8efcc0e50a7ef112236f2cc)
+        ;
+
+        
+    
+    
+            var circle_marker_422c5efb5e3e1910d51188a2f7a018c1 = L.circleMarker(
+                [22.493682937037036, 88.3711626611111],
+                {"bubblingMouseEvents": true, "color": "rgba(0, 128, 0, 1)", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "rgba(0, 128, 0, 0.6)", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_442c956d0b6fef323f779c24a221bf2f);
+        
+    
+        var popup_3d538554524b9c2bc811f16a7bfe63d7 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_4548e3b7225f7fcc1b5b88dd12aa4ab5 = $(`<div id="html_4548e3b7225f7fcc1b5b88dd12aa4ab5" style="width: 100.0%; height: 100.0%;">Rank: 5 Score:-52.27159991565445 Cluster ID:9</div>`)[0];
+                popup_3d538554524b9c2bc811f16a7bfe63d7.setContent(html_4548e3b7225f7fcc1b5b88dd12aa4ab5);
+            
+        
+
+        circle_marker_422c5efb5e3e1910d51188a2f7a018c1.bindPopup(popup_3d538554524b9c2bc811f16a7bfe63d7)
+        ;
+
+        
+    
+    
+            var circle_marker_1d3a78315b61b1e05d0593e7c9dab4b0 = L.circleMarker(
+                [22.544479233333334, 88.39139946666666],
+                {"bubblingMouseEvents": true, "color": "rgba(0, 128, 0, 1)", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "rgba(0, 128, 0, 0.6)", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_442c956d0b6fef323f779c24a221bf2f);
+        
+    
+        var popup_13c1ffc9ef1e7ddd8ddb0ed704fdc594 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_83a26f19c2e45eae454fbe06d60bc6bc = $(`<div id="html_83a26f19c2e45eae454fbe06d60bc6bc" style="width: 100.0%; height: 100.0%;">Rank: 6 Score:-52.61329017974808 Cluster ID:9</div>`)[0];
+                popup_13c1ffc9ef1e7ddd8ddb0ed704fdc594.setContent(html_83a26f19c2e45eae454fbe06d60bc6bc);
+            
+        
+
+        circle_marker_1d3a78315b61b1e05d0593e7c9dab4b0.bindPopup(popup_13c1ffc9ef1e7ddd8ddb0ed704fdc594)
+        ;
+
+        
+    
+    
+            var circle_marker_4f4c2c39ca54fb1b19a21737325f1c90 = L.circleMarker(
+                [22.502879233333335, 88.37093904999999],
+                {"bubblingMouseEvents": true, "color": "rgba(0, 128, 0, 1)", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "rgba(0, 128, 0, 0.6)", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_442c956d0b6fef323f779c24a221bf2f);
+        
+    
+        var popup_e28683393c0d320871e601cb2158ff31 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_a07d1682df924c5111cb9469479044ad = $(`<div id="html_a07d1682df924c5111cb9469479044ad" style="width: 100.0%; height: 100.0%;">Rank: 7 Score:-55.34469153577525 Cluster ID:9</div>`)[0];
+                popup_e28683393c0d320871e601cb2158ff31.setContent(html_a07d1682df924c5111cb9469479044ad);
+            
+        
+
+        circle_marker_4f4c2c39ca54fb1b19a21737325f1c90.bindPopup(popup_e28683393c0d320871e601cb2158ff31)
+        ;
+
+        
+    
+    
+            var circle_marker_b2d805058fe6a22184440b78ed82c5ac = L.circleMarker(
+                [22.598429233333334, 88.34117082083333],
+                {"bubblingMouseEvents": true, "color": "rgba(0, 0, 128, 1)", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "rgba(0, 0, 128, 0.6)", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_442c956d0b6fef323f779c24a221bf2f);
+        
+    
+        var popup_50c8fcaf5df8d3d2fd0ecae1b10acf1e = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_2fed278ed6e441e6eb2eba462ff7bcd6 = $(`<div id="html_2fed278ed6e441e6eb2eba462ff7bcd6" style="width: 100.0%; height: 100.0%;">Rank: 1 Score:-38.49598154273597 Cluster ID:10</div>`)[0];
+                popup_50c8fcaf5df8d3d2fd0ecae1b10acf1e.setContent(html_2fed278ed6e441e6eb2eba462ff7bcd6);
+            
+        
+
+        circle_marker_b2d805058fe6a22184440b78ed82c5ac.bindPopup(popup_50c8fcaf5df8d3d2fd0ecae1b10acf1e)
+        ;
+
+        
+    
+    
+            var circle_marker_54020cedb1d38e56b21aa324d949e3d0 = L.circleMarker(
+                [22.600812566666665, 88.33940988333333],
+                {"bubblingMouseEvents": true, "color": "rgba(0, 0, 128, 1)", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "rgba(0, 0, 128, 0.6)", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_442c956d0b6fef323f779c24a221bf2f);
+        
+    
+        var popup_63b6fcc5c335903d82055309ea3ba639 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_59e657084125ce9b44b58b86c26e8507 = $(`<div id="html_59e657084125ce9b44b58b86c26e8507" style="width: 100.0%; height: 100.0%;">Rank: 2 Score:-43.51296403692468 Cluster ID:10</div>`)[0];
+                popup_63b6fcc5c335903d82055309ea3ba639.setContent(html_59e657084125ce9b44b58b86c26e8507);
+            
+        
+
+        circle_marker_54020cedb1d38e56b21aa324d949e3d0.bindPopup(popup_63b6fcc5c335903d82055309ea3ba639)
+        ;
+
+        
+    
+    
+            var circle_marker_e26eaed64c2b2396eb8034594d8167bf = L.circleMarker(
+                [22.60259404814815, 88.33555259166666],
+                {"bubblingMouseEvents": true, "color": "rgba(0, 0, 128, 1)", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "rgba(0, 0, 128, 0.6)", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_442c956d0b6fef323f779c24a221bf2f);
+        
+    
+        var popup_1d44e59f233be48cadc5e326bc2993f1 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_415154f8a76efe4512ebb8db144e38f0 = $(`<div id="html_415154f8a76efe4512ebb8db144e38f0" style="width: 100.0%; height: 100.0%;">Rank: 3 Score:-50.14303910707565 Cluster ID:10</div>`)[0];
+                popup_1d44e59f233be48cadc5e326bc2993f1.setContent(html_415154f8a76efe4512ebb8db144e38f0);
+            
+        
+
+        circle_marker_e26eaed64c2b2396eb8034594d8167bf.bindPopup(popup_1d44e59f233be48cadc5e326bc2993f1)
+        ;
+
+        
+    
+    
+            var circle_marker_59996f1f23a58b4b1eb62d4fc9c7a76f = L.circleMarker(
+                [22.5973459, 88.31760779999999],
+                {"bubblingMouseEvents": true, "color": "rgba(0, 0, 128, 1)", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "rgba(0, 0, 128, 0.6)", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_442c956d0b6fef323f779c24a221bf2f);
+        
+    
+        var popup_d4c0c461a75b215338a0ec45e6436c74 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_7b70095730a281918dd989fe6d875db6 = $(`<div id="html_7b70095730a281918dd989fe6d875db6" style="width: 100.0%; height: 100.0%;">Rank: 4 Score:-70.27829813987097 Cluster ID:10</div>`)[0];
+                popup_d4c0c461a75b215338a0ec45e6436c74.setContent(html_7b70095730a281918dd989fe6d875db6);
+            
+        
+
+        circle_marker_59996f1f23a58b4b1eb62d4fc9c7a76f.bindPopup(popup_d4c0c461a75b215338a0ec45e6436c74)
+        ;
+
+        
+    
+    
+            var circle_marker_7918765eb25fff6abe48a7b7b3a6ecef = L.circleMarker(
+                [22.62830515925926, 88.34824252222222],
+                {"bubblingMouseEvents": true, "color": "rgba(0, 0, 128, 1)", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "rgba(0, 0, 128, 0.6)", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_442c956d0b6fef323f779c24a221bf2f);
+        
+    
+        var popup_39e833cf855069ad66c4873cf3a2a4d1 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_5f131f15b9bdc5dd8232f4a40684b8b1 = $(`<div id="html_5f131f15b9bdc5dd8232f4a40684b8b1" style="width: 100.0%; height: 100.0%;">Rank: 5 Score:-81.1696203729931 Cluster ID:10</div>`)[0];
+                popup_39e833cf855069ad66c4873cf3a2a4d1.setContent(html_5f131f15b9bdc5dd8232f4a40684b8b1);
+            
+        
+
+        circle_marker_7918765eb25fff6abe48a7b7b3a6ecef.bindPopup(popup_39e833cf855069ad66c4873cf3a2a4d1)
+        ;
+
+        
+    
+    
+            var circle_marker_ed872c7e5f4bb65bbc70a5200f00369c = L.circleMarker(
+                [22.607168122222223, 88.313079675],
+                {"bubblingMouseEvents": true, "color": "rgba(0, 0, 128, 1)", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "rgba(0, 0, 128, 0.6)", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_442c956d0b6fef323f779c24a221bf2f);
+        
+    
+        var popup_5735dc55a2b741a74778478e5152de73 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_2216cbf033b3d629ae8b106a895e2ee0 = $(`<div id="html_2216cbf033b3d629ae8b106a895e2ee0" style="width: 100.0%; height: 100.0%;">Rank: 6 Score:-84.41722890193529 Cluster ID:10</div>`)[0];
+                popup_5735dc55a2b741a74778478e5152de73.setContent(html_2216cbf033b3d629ae8b106a895e2ee0);
+            
+        
+
+        circle_marker_ed872c7e5f4bb65bbc70a5200f00369c.bindPopup(popup_5735dc55a2b741a74778478e5152de73)
+        ;
+
+        
+    
+    
+            var circle_marker_aa60c8b3b9cec40f3370e70b08351cd1 = L.circleMarker(
+                [22.59892877037037, 88.30862841631944],
+                {"bubblingMouseEvents": true, "color": "rgba(0, 0, 128, 1)", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "rgba(0, 0, 128, 0.6)", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 3}
+            ).addTo(map_442c956d0b6fef323f779c24a221bf2f);
+        
+    
+        var popup_d572d57e99960457c0bdb3f4e31a6199 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_98e737882ac9981a3093174d9523fc41 = $(`<div id="html_98e737882ac9981a3093174d9523fc41" style="width: 100.0%; height: 100.0%;">Rank: 7 Score:-84.93173916705324 Cluster ID:10</div>`)[0];
+                popup_d572d57e99960457c0bdb3f4e31a6199.setContent(html_98e737882ac9981a3093174d9523fc41);
+            
+        
+
+        circle_marker_aa60c8b3b9cec40f3370e70b08351cd1.bindPopup(popup_d572d57e99960457c0bdb3f4e31a6199)
+        ;
+
+        
+    
+</script>
+</html>

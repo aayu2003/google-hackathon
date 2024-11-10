@@ -4,6 +4,7 @@ from typing import List, Optional
 
 class City(BaseModel):
     name:str
+    suggested:List[str]
 
 
 class demand(BaseModel):

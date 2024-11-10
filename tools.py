@@ -85,16 +85,16 @@ def scrape(url:str):
 
 
 
-@ltl("Make a calculation",args_schema=calculationInput,return_direct=True)
-def calculate(operation:str) -> str:
-    """Calculate the given mathematical operation and return the result. the expression should be a string containing just numbers and operators
-    use it to find the number of products for each price segment"""
+# @ltl("Make a calculation",args_schema=calculationInput,return_direct=True)
+# def calculate(operation:str) -> str:
+#     """Calculate the given mathematical operation and return the result. the expression should be a string containing just numbers and operators
+#     use it to find the number of products for each price segment"""
     
-    try :
-        ans = eval(operation)
-        return "The result of operation is : "+str(ans)
-    except SyntaxError:
-        return "ERROR: INVALID SYNTAX IN MATHEMATICAL EXPRESSION"
+#     try :
+#         ans = eval(operation)
+#         return "The result of operation is : "+str(ans)
+#     except SyntaxError:
+#         return "ERROR: INVALID SYNTAX IN MATHEMATICAL EXPRESSION"
     
 
 

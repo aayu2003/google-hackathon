@@ -4,14 +4,14 @@ import tables
 from sqlalchemy.orm import Session
 from typing import List
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import HTMLResponse
-from jinja2 import Template
+# from fastapi.responses import HTMLResponse
+# from jinja2 import Template
 # from schemas import UserLogin,UserSignup, Token, CreateOrder,AP,PO,appro
 from api import get_chat_session
 # from google import generativeai as genai
 from crew import TripCrew
-from datetime import timedelta
-import logging
+# from datetime import timedelta
+# import logging
 from schemas import City, demand
 from geocoding import gc
 from map import make_map,make_map_satellite,land_zoom
@@ -22,6 +22,9 @@ from highway import find_nearest_highway
 import math
 from tools import search_internet,scrape
 import json
+import os
+from dotenv import load_dotenv
+import inspect
 app=FastAPI()
 app.add_middleware(
     CORSMiddleware,
@@ -30,6 +33,8 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+load_dotenv()
+
 
 from fastapi.staticfiles import StaticFiles
 
@@ -49,9 +54,15 @@ def process_new_stores(stores, city):
         H_path = land_zoom(st["coord"], city, st["id"])
         selen_zoom(city, H_path, st["id"])
 
+
+def get_variable_name(var):
+    frame = inspect.currentframe().f_back
+    return [k for k, v in frame.f_locals.items() if v is var]
 @app.post('/add_city',status_code=status.HTTP_200_OK, tags=["Admin"])
-async def add_city(city:City, background_tasks: BackgroundTasks, db: Session = Depends(get_db)):
+async def add_city(city:City, db: Session = Depends(get_db)):
+    sugg=city.suggested
     city = city.name # Read the body of the request
+    
     # city = city.decode('utf-8')  # Decode the bytes to string
     city = str(city)  # Convert the string to lowercase
     cityy= city.lower()
@@ -66,6 +77,12 @@ async def add_city(city:City, background_tasks: BackgroundTasks, db: Session = D
     if not check_db:
             Airports = gc(cityy + " airport",0.4)                                                  # first scrape airport name, then search geocode
             Stations= gc(cityy + " railway",0.4)
+            Malls=gc(cityy + " mall",0)
+            Hospitals=gc(cityy + " hospital",0)
+            Markets=gc(cityy + " market",0)
+            Hotels=gc(cityy + " hotel",0)
+            Restaurants=gc(cityy + " restaurant",0)
+            Schools=gc(cityy + " school",0)
             path = make_map(c[0][1], cityy)
             satellite_path=make_map_satellite(c[0][1],cityy)
             img_path = save_ss(cityy, path)
@@ -92,7 +109,40 @@ async def add_city(city:City, background_tasks: BackgroundTasks, db: Session = D
             print(1)
             airports=[{"id":i,"name": Airport[0], "coord": Airport[1]} for i,Airport in enumerate(Airports) ]
             stations=[{"id":i,"name": Airport[0], "coord": Airport[1]} for i,Airport in enumerate(Stations) ]
+            malls=[{"id":i,"name": Mall[0], "coord": Mall[1]} for i,Mall in enumerate(Malls) ]
+            hospitals=[{"id":i,"name": Hospital[0], "coord": Hospital[1]} for i,Hospital in enumerate(Hospitals) ]
+            markets=[{"id":i,"name": Market[0], "coord": Market[1]} for i,Market in enumerate(Markets) ]
+            hotels=[{"id":i,"name": Hotel[0], "coord": Hotel[1]} for i,Hotel in enumerate(Hotels) ]
+            restaurants=[{"id":i,"name": Restaurant[0], "coord": Restaurant[1]} for i,Restaurant in enumerate(Restaurants) ]
+            schools=[{"id":i,"name": School[0], "coord": School[1]} for i,School in enumerate(Schools) ]
+            print("airports : ", airports)
+            print("stations : ", stations)
+            print("malls : ", malls)
+            print("hospitals : ", hospitals)
+            print("markets : ", markets)
+            print("hotels : ", hotels)
+            print("restaurants : ", restaurants)
+            print("schools : ", schools)
+            map={
+                "BESIDE MAIN ROADS/HIGHWAYS":[],
+                "IN POPULAR MARKETS":markets,
+                "NEARBY AIRPORTS/RAILWAY STATIONS":airports+stations,
+                "NEARBY SCHOOLS":schools,
+                "NEARBY HOSPITALS":hospitals,
+                "NEARBY RESIDENTIAL AREAS":[],
+                "IN MALLS":malls,
+                "NEARBY HOTELS/RESTAURANTS":hotels+restaurants,
+                "NEARBY TOURIST PLACES":[]
 
+
+
+
+            }
+            potential_list=[]
+            only_lists=[]
+            for i in sugg:
+                potential_list.extend(map[i])
+                only_lists.append((i,map[i]))
             def how_many_stores(n):
                 if n<=5000:
                     return 1
@@ -105,66 +155,179 @@ async def add_city(city:City, background_tasks: BackgroundTasks, db: Session = D
 
             
             clusters=[{"id": idx, "coord": convert_to_coord(coord,float(c[0][1][0])+0.156,float(c[0][1][1])-0.322),"houses":i} for idx, (i, coord) in enumerate(zip(NP,r2))]
-            stores=[{"id": i, "coord": convert_to_coord(coord[0],float(c[0][1][0])+0.156,float(c[0][1][1])-0.322),"cluster_id":coord[1],"houses":coord[2],"air_dist":"","station_dist":""} for i, coord in enumerate(final_stations) ]
-            print(2)
-            print(len(stores))
-            new_stores=[]
-            for cl in clusters:
-                c_stores=[]
-                cou=how_many_stores(cl["houses"])
-                print(cou)
-                for st in range(len(stores)):
-                    if stores[st]["cluster_id"]==cl["id"]:
-                        mindist=0
-                        if len(airports) and len(stations):
-                            mindist=min(haversine(stores[st]["coord"][0],stores[st]["coord"][1],float(i["coord"][0]),float(i["coord"][1])) for i in airports+stations)
-                            stores[st]["air_dist"]=min(haversine(stores[st]["coord"][0],stores[st]["coord"][1],float(i["coord"][0]),float(i["coord"][1])) for i in airports)
-                            stores[st]["station_dist"]=min(haversine(stores[st]["coord"][0],stores[st]["coord"][1],float(i["coord"][0]),float(i["coord"][1])) for i in stations)
-                        elif len(airports):
-                            mindist=min(haversine(stores[st]["coord"][0],stores[st]["coord"][1],float(i["coord"][0]),float(i["coord"][1])) for i in airports)
-                            stores[st]["air_dist"]=min(haversine(stores[st]["coord"][0],stores[st]["coord"][1],float(i["coord"][0]),float(i["coord"][1])) for i in airports)
-                        elif len(stations):
-                            mindist=min(haversine(stores[st]["coord"][0],stores[st]["coord"][1],float(i["coord"][0]),float(i["coord"][1])) for i in stations)
-                            stores[st]["station_dist"]=min(haversine(stores[st]["coord"][0],stores[st]["coord"][1],float(i["coord"][0]),float(i["coord"][1])) for i in stations)
-                        c_stores.append([stores[st],mindist])
-
-                c_stores.sort(key=lambda x: x[1])
-                if c_stores and len(c_stores)>=cou:
-                    new_stores.extend([ij[0] for ij in c_stores[:cou]])
-                else:
-                    if not c_stores:
-                        continue
-                    new_stores.extend([ij[0] for ij in c_stores])
-            # for st in new_stores:
-            #     H_path=land_zoom(st["coord"],cityy,st["id"])
-            #     selen_zoom(cityy,H_path,st["id"])
-            new_city = tables.City(                                    
+            # stores=[{"id": i, "coord": convert_to_coord(coord[0],float(c[0][1][0])+0.156,float(c[0][1][1])-0.322),"cluster_id":coord[1],"houses":coord[2],"air_dist":"","station_dist":""} for i, coord in enumerate(final_stations) ]
+            # print(2)
+            # print(len(stores))
+            old_city = tables.City(                                    
                 name=cityy,                                     
                 lat=float(c[0][1][0]),                                
                 long=float(c[0][1][1]),
                 clusters=[{"id": int(idx), "coord": convert_to_coord(coord,float(c[0][1][0])+0.156,float(c[0][1][1])-0.322),"houses":int(i)} for idx, (i, coord) in enumerate(zip(NP,r2))],
-                stores=[{"id":int(i["id"]),"coord":i["coord"],"cluster_id":int(i["cluster_id"]),"houses":int(i["houses"]),"air_dist":i["air_dist"],"station_dist":i["station_dist"]} for i in new_stores],
+                stores=[{"id": int(i), "coord": convert_to_coord(coord[0],float(c[0][1][0])+0.156,float(c[0][1][1])-0.322),"cluster_id":int(coord[1]),"houses":int(coord[2])} for i, coord in enumerate(final_stations) ],
                 airports=[{"id":i,"name": Airport[0], "coord": Airport[1]} for i,Airport in enumerate(Airports) ],
-                stations=[{"id":i,"name": Airport[0], "coord": Airport[1]} for i,Airport in enumerate(Stations) ]
+                stations=[{"id":i,"name": Airport[0], "coord": Airport[1]} for i,Airport in enumerate(Stations) ],
+                malls=[{"id":i,"name": Mall[0], "coord": Mall[1]} for i,Mall in enumerate(Malls) ],
+                hospitals=[{"id":i,"name": Hospital[0], "coord": Hospital[1]} for i,Hospital in enumerate(Hospitals) ],
+                markets=[{"id":i,"name": Market[0], "coord": Market[1]} for i,Market in enumerate(Markets) ],
+                hotels=[{"id":i,"name": Hotel[0], "coord": Hotel[1]} for i,Hotel in enumerate(Hotels) ],
+                restaurants=[{"id":i,"name": Restaurant[0], "coord": Restaurant[1]} for i,Restaurant in enumerate(Restaurants) ],
+                schools=[{"id":i,"name": School[0], "coord": School[1]} for i,School in enumerate(Schools) ]
                 
-
-                # ADD airport distancs, station distance and highway distance in stores directly, also add score of each store, highest=true for the highest of each cluster
-
+       # ADD airport distancs, station distance and highway distance in stores directly, also add score of each store, highest=true for the highest of each cluster
             )
-            db.add(new_city)
-            db.commit() 
-            db.refresh(new_city)
+            
+            # for st in new_stores:
+            #     H_path=land_zoom(st["coord"],cityy,st["id"])
+            #     selen_zoom(cityy,H_path,st["id"])
+            db.add(old_city)
+            db.commit()
+            db.refresh(old_city)
+            print("added old city")
+            return "added city details"
+            
+            # db.add(new_city)
+            # db.commit() 
+            # db.refresh(new_city)
             # Return the city data
-            print("done")
-            background_tasks.add_task(process_new_stores, new_stores, cityy)
-            return new_city
+            # print("done")
+            # background_tasks.add_task(process_new_stores, new_stores, cityy)
+            
             
             
        
     else:
         # Return the city data
+        Airports=check_db.airports
+        Stations=check_db.stations
+        Malls=check_db.malls
+        Hospitals=check_db.hospitals
+        Markets=check_db.markets
+        Hotels=check_db.hotels
+        Restaurants=check_db.restaurants
+        Schools=check_db.schools
+        clusters=check_db.clusters
+        map={
+                "BESIDE MAIN ROADS/HIGHWAYS":[],
+                "IN POPULAR MARKETS":Markets,
+                "NEARBY AIRPORTS/RAILWAY STATIONS":Airports+Stations,
+                "NEARBY SCHOOLS":Schools,
+                "NEARBY HOSPITALS":Hospitals,
+                "NEARBY RESIDENTIAL AREAS":[],
+                "IN MALLS":Malls,
+                "NEARBY HOTELS/RESTAURANTS":Hotels+Restaurants,
+                "NEARBY TOURIST PLACES":[]
+
+
+
+
+            }
+        map2={
+                "BESIDE MAIN ROADS/HIGHWAYS":"rh",
+                "IN POPULAR MARKETS":"market",
+                "NEARBY AIRPORTS/RAILWAY STATIONS":"as",
+                "NEARBY SCHOOLS":"school",
+                "NEARBY HOSPITALS":"hospital",
+                "NEARBY RESIDENTIAL AREAS":"ra",
+                "IN MALLS":"mall",
+                "NEARBY HOTELS/RESTAURANTS":"hr",
+                "NEARBY TOURIST PLACES":"tp"
+
+
+
+
+            }
+        potential_list=[]
+        only_lists=[]
+        for i in sugg:
+            potential_list.extend(map[i])
+            only_lists.append((i,map[i]))
+        def how_many_stores(n):
+            if n<=5000:
+                return 1
+            elif n>5000 and n<15000:
+                return 3
+            elif n>=15000 and n<25000:
+                return 5
+            elif n>=25000:
+                return 7
+        stores=check_db.stores
+        clusters=check_db.clusters
         print("alreadt exists")
-        return check_db
+        new_stores=[]
+        for cl in clusters:
+            c_stores=[]
+            cou=how_many_stores(cl["houses"])
+            print(cou)
+            # finding nearest railway station or airport whatever is near
+            for st in range(len(stores)):
+                if stores[st]["cluster_id"]==cl["id"]:
+                    coeff=-10
+                    score=0
+                        # mindist=min(haversine(stores[st]["coord"][0],stores[st]["coord"][1],float(i["coord"][0]),float(i["coord"][1])) for i in potential_list)
+                    for sublist in only_lists:
+                        mindist=-1
+                        if len(sublist[1]):
+                            mindist=min(haversine(stores[st]["coord"][0],stores[st]["coord"][1],float(i["coord"][0]),float(i["coord"][1])) for i in sublist[1])
+                            
+                            score+=coeff*mindist
+                        stores[st][sublist[0]]=mindist
+                        coeff+=2
+                    stores[st]["score"]=score
+                    print(score)
+                        # if len(airports):
+                        #     stores[st]["air_dist"]=min(haversine(stores[st]["coord"][0],stores[st]["coord"][1],float(i["coord"][0]),float(i["coord"][1])) for i in airports)
+                        # if len(stations):
+                        #     stores[st]["station_dist"]=min(haversine(stores[st]["coord"][0],stores[st]["coord"][1],float(i["coord"][0]),float(i["coord"][1])) for i in stations)
+                        
+                    
+                    
+                    # if len(potential_list):
+                    # elif len(airports):
+                    #     mindist=min(haversine(stores[st]["coord"][0],stores[st]["coord"][1],float(i["coord"][0]),float(i["coord"][1])) for i in airports)
+                    #     stores[st]["air_dist"]=min(haversine(stores[st]["coord"][0],stores[st]["coord"][1],float(i["coord"][0]),float(i["coord"][1])) for i in airports)
+                    # elif len(stations):
+                    #     mindist=min(haversine(stores[st]["coord"][0],stores[st]["coord"][1],float(i["coord"][0]),float(i["coord"][1])) for i in stations)
+                    #     stores[st]["station_dist"]=min(haversine(stores[st]["coord"][0],stores[st]["coord"][1],float(i["coord"][0]),float(i["coord"][1])) for i in stations)
+                    c_stores.append([stores[st],score])
+
+            c_stores.sort(key=lambda x: x[1],reverse=True)
+            for i in range(len(c_stores)):
+                c_stores[i][0]["rank"]=i+1
+            if c_stores and len(c_stores)>=cou:
+                new_stores.extend([ij[0] for ij in c_stores[:cou]])
+            else:
+                if not c_stores:
+                    continue
+                new_stores.extend([ij[0] for ij in c_stores])   
+        
+        final=[]
+        for i in new_stores:
+            di={"id":int(i["id"]),"coord":i["coord"],"cluster_id":int(i["cluster_id"]),"houses":int(i["houses"]), "score":i["score"],"rank":i["rank"]}
+            for j in only_lists:
+                di[map2[j[0]]]=i[j[0]]
+            final.append(di)
+            
+        new_city = tables.City(                                    
+            name=cityy,                                     
+            lat=float(c[0][1][0]),                                
+            long=float(c[0][1][1]),
+            clusters=clusters,
+            stores=final,
+            airports=Airports,
+            stations=Stations,
+            malls=Malls,
+            hospitals=Hospitals,
+            markets=Markets,
+            hotels=Hotels,
+            restaurants=Restaurants,
+            schools=Schools
+            
+
+            # ADD airport distancs, station distance and highway distance in stores directly, also add score of each store, highest=true for the highest of each cluster
+
+        )
+        return new_city
+        
     
 
 
@@ -179,34 +342,36 @@ async def chat(user_id: str, message: str):
     # Return the bot's response
     return {"response": response.text}
 
+from collections import defaultdict
+Price_seg = defaultdict(lambda: "Assume according to scrapped data")
 
-Price_seg={
-    "smartphones":{
-        "high":" above 60000 rupees",
-        "mid":" between 20000 and 60000 rupees",
-        "low":" below 20000 rupees"
-    },
-    "laptops":{
-        "high":" above 80000 rupees",
-        "mid":" between 30000 and 80000 rupees",
-        "low":" below 30000 rupees"
-    },
-    "headphones":{
-        "high":" above 15000 rupees",
-        "mid":" between 3000 and 15000 rupees",
-        "low":" below 3000 rupees"
-    },
-    "washing machines":{
-        "high":" above 40000 rupees",
-        "mid":" between 15000 and 40000 rupees",
-        "low":" below 15000 rupees"
-    },
-    "refrigerators":{
-        "high":" above 60000 rupees",
-        "mid":" between 20000 and 60000 rupees",
-        "low":" below 20000 rupees"
-    }
+Price_seg["smartphones"]={
+    "high":" above 60000 rupees",
+    "mid":" between 20000 and 60000 rupees",
+    "low":" below 20000 rupees"
 }
+Price_seg["laptops"]={
+    "high":" above 80000 rupees",
+    "mid":" between 30000 and 80000 rupees",
+    "low":" between 20000 and 30000 rupees",
+    "NOTE": "Don't keep any laptop below 20000 rupees"
+}
+Price_seg["headphones"]={
+    "high":" above 15000 rupees",
+    "mid":" between 3000 and 15000 rupees",
+    "low":" below 3000 rupees"
+}
+Price_seg["washing machines"]={
+    "high":" above 40000 rupees",
+    "mid":" between 15000 and 40000 rupees",
+    "low":" below 15000 rupees"
+}
+Price_seg["refrigerators"]={
+    "high":" above 60000 rupees",
+    "mid":" between 20000 and 60000 rupees",
+    "low":" below 20000 rupees"
+}
+
 
 @app.post("/demand_forecasting",status_code=status.HTTP_200_OK, tags=["Demand Forecasting"])
 async def demand_forecasting(info:demand):
@@ -333,10 +498,10 @@ gwalior, jabalpur, jodhpur, kochi, kozhikode, ludhiana, madurai, meerut, nashik,
     print("## Here is you Forecasting result")
     print("########################\n")
     print(result)
-    output_dict = result.model_dump()
+    # output_dict = result.model_dump()
     # Convert string to dictionary
-    print(output_dict["raw"][-7:-4])
-    my_dict = json.loads(output_dict["raw"][7:-4])
+    print(result[-7:-4])
+    my_dict = json.loads(result[7:-4])
 
     # output_json = json.dumps(output_dict)
     # print(output_dict)

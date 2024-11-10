@@ -13,3 +13,9 @@ class City(Base):
     airports=Column(JSON)
     stations=Column(JSON)
     clusters=Column(JSON)  # k means cluster centers
+    malls=Column(JSON)
+    hospitals=Column(JSON)
+    schools=Column(JSON)
+    markets=Column(JSON)
+    hotels=Column(JSON)
+    restaurants=Column(JSON)

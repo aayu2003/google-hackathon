@@ -1,5 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
 import time
 import os
 
@@ -10,11 +11,11 @@ def save_ss(city,map_path):
 
     # Set up the Selenium WebDriver
     options = webdriver.ChromeOptions()
-    options.binary_location = "/usr/bin/chromium-browser"
+    # options.binary_location = "/usr/bin/chromium-browser"
     options.add_argument("--headless")
     options.add_argument("--window-size=1920,1080")  # Set window size to a large value for high resolution
-    driver_path = '/snap/chromium/2953/usr/lib/chromium-browser/chromedriver'  # Change this to the path where you placed chromedriver
-    service = Service(driver_path)
+    # driver_path = '/snap/chromium/2953/usr/lib/chromium-browser/chromedriver'  # Change this to the path where you placed chromedriver
+    service = Service(ChromeDriverManager().install())
     driver = webdriver.Chrome(service=service, options=options)
 
     # Open the HTML file
@@ -36,11 +37,11 @@ def save_ss_satellite(city,map_path):
 
     # Set up the Selenium WebDriver
     options = webdriver.ChromeOptions()
-    options.binary_location = "/usr/bin/google-chrome"
+    # options.binary_location = "/usr/bin/google-chrome"
     options.add_argument("--headless")
     options.add_argument("--window-size=1920,1080")  # Set window size to a large value for high resolution
-    driver_path = '/home/aryan/croma/chromedriver-linux64/chromedriver'  # Change this to the path where you placed chromedriver
-    service = Service(driver_path)
+    # driver_path = '/home/aryan/croma/chromedriver-linux64/chromedriver'  # Change this to the path where you placed chromedriver
+    service = Service(ChromeDriverManager().install())
     driver = webdriver.Chrome(service=service, options=options)
 
     # Open the HTML file
@@ -63,11 +64,11 @@ def selen_zoom(city,map_path,id):
 
     # Set up the Selenium WebDriver
     options = webdriver.ChromeOptions()
-    options.binary_location = "/usr/bin/google-chrome"
+    # options.binary_location = "/usr/bin/google-chrome"
     options.add_argument("--headless")
     options.add_argument("--window-size=1080,1080")  # Set window size to a large value for high resolution
-    driver_path = '/home/aryan/croma/chromedriver-linux64/chromedriver'  # Change this to the path where you placed chromedriver
-    service = Service(driver_path)
+    # driver_path = '/home/aryan/croma/chromedriver-linux64/chromedriver'  # Change this to the path where you placed chromedriver
+    service = Service(ChromeDriverManager().install())
     driver = webdriver.Chrome(service=service, options=options)
 
     # Open the HTML file
