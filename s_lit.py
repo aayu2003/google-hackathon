@@ -144,7 +144,8 @@ async def send_for_forecast(city_name, product_name,quantity=250):
 # Home page
 if st.session_state.page == "home":
     st.title("CUSTOMER SEGMENTATION (MARKETING)")
-    
+    st.write("This app helps you to generate marketing strategies for different customer segments based on their characteristics.")
+    st.write("Just upload a CSV file with customer data and provide descriptions for each column. The app will generate unique marketing strategies for each customer segment.")
     uploaded_file = st.file_uploader("Upload a CSV file", type=["csv"])
 
 # Check if a file is uploaded
