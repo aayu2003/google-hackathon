@@ -18,8 +18,9 @@ from sklearn.cluster import KMeans
 from scipy.spatial.distance import cdist
 import pandas as pd
 from sklearn.preprocessing import LabelEncoder
-model = genai.GenerativeModel(model_name="gemini-1.5-flash")
-
+# model = genai.GenerativeModel(model_name="gemini-1.5-flash")
+api_key = "AIzaSyCttE7CHlvxpD3o4bNMHi7Sj52IHPbfaTU"
+genai.configure(api_key=api_key)
 # os.environ['LANGCHAIN_TRACING_V2'] ="true"
 # os.environ['LANGCHAIN_API_KEY'] =os.getenv("LANGCHAIN_API_KEY")
 # os.environ["LANGCHAIN_ENDPOINT"]="https://api.smith.langchain.com"
@@ -68,12 +69,11 @@ def marketing_strategy(df,dropping_columns,column_explainination):
     l={}
     for i, idx in enumerate(nearest_indices):
         row_dict = df.loc[idx].to_dict()
-        import google.generativeai as genai
+        
         import json
 
         # Directly use the API key
-        api_key = "AIzaSyCttE7CHlvxpD3o4bNMHi7Sj52IHPbfaTU"
-        genai.configure(api_key=api_key)
+        
 
         # Create the model
         generation_config = {
@@ -99,8 +99,8 @@ def marketing_strategy(df,dropping_columns,column_explainination):
 
     return l
 
-API_URL = "https://hack-the-fall.onrender.com/add_city"
-FORECAST_URL="https://hack-the-fall.onrender.com/demand_forecasting"
+API_URL = "http://127.0.0.1:8000/add_city"
+FORECAST_URL="http://127.0.0.1:8000/demand_forecasting"
 
 # Set up the session state for page navigation
 if "page" not in st.session_state:
@@ -199,11 +199,29 @@ elif st.session_state.page == "add_store":
         import time
         while True:
             try:
-                response = model.generate_content(f"""I want to add a new {selected_prod}. I am looking for a place in {city}. I need some relevant place types from the following options:- {optio}. Strictly Return a json with 5 most relevant place types as 'keys' and reason to choose that place as 'values'. response should have items from the given options. The list should be sorted from most important place type to least important. Take factors into consideration such as :-
-                                                products might need to be imported or exported should be nearer to airports and railways, attract most relevant audience from the place types according to the product, etc. No preambles or postambles. """)
+                generation_config = {
+                    "temperature": 1,
+                    "top_p": 0.95,
+                    "top_k": 64,
+                    "max_output_tokens": 8192,
+                    "response_mime_type": "text/plain",  # Request JSON response
+                }
+                model = genai.GenerativeModel(
+                model_name="gemini-1.5-flash",
+                generation_config=generation_config,
+                )
                 
-                print(response.text)
-                ans = json.loads(response.text[7:-4])  # Parse JSON, adjust slicing if necessary
+                chat_session = model.start_chat(
+                    history=[
+                    ]
+                )
+                
+                response=chat_session.send_message(f''' I want to add a new {selected_prod}. I am looking for a place in {city}. I need some relevant place types from the following options:- {optio}. Strictly Return a json with 5 most relevant place types as 'keys' and reason to choose that place as 'values'. response should have items from the given options. The list should be sorted from most important place type to least important. Take factors into consideration such as :-
+                                                products might need to be imported or exported should be nearer to airports and railways, attract most relevant audience from the place types according to the product, etc. No preambles or postambles. ''').text
+                
+                
+                print(response)
+                ans = json.loads(response[7:-4])  # Parse JSON, adjust slicing if necessary
                 break  # Exit loop if successful
 
             except Exception as e:
