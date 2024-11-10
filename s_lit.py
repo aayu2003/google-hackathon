@@ -163,8 +163,8 @@ if st.session_state.page == "home":
         # Display the description text when the user submits
         if st.button("Submit Descriptions"):
             market=marketing_strategy(df,['account_creation_date','last_login_date','last_transaction_date','user_id','name','email','location','product_affinity'],description_text)
-            st.image("/home/aryan/MY_PROJECTS/croma/WhatsApp Image 2024-11-09 at 4.53.30 PM.jpeg")
-            st.image("/home/aryan/MY_PROJECTS/croma/WhatsApp Image 2024-11-09 at 4.54.15 PM.jpeg")
+            # st.image("/home/aryan/MY_PROJECTS/croma/WhatsApp Image 2024-11-09 at 4.53.30 PM.jpeg")
+            # st.image("/home/aryan/MY_PROJECTS/croma/WhatsApp Image 2024-11-09 at 4.54.15 PM.jpeg")
 
             st.title("Marketing Strategies")
             print(market)
