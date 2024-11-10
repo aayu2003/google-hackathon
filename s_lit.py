@@ -99,8 +99,8 @@ def marketing_strategy(df,dropping_columns,column_explainination):
 
     return l
 
-API_URL = "http://localhost:8000/add_city"
-FORECAST_URL="http://localhost:8000/demand_forecasting"
+API_URL = "https://hack-the-fall.onrender.com/add_city"
+FORECAST_URL="https://hack-the-fall.onrender.com/demand_forecasting"
 
 # Set up the session state for page navigation
 if "page" not in st.session_state:
@@ -165,7 +165,7 @@ if st.session_state.page == "home":
             market=marketing_strategy(df,['account_creation_date','last_login_date','last_transaction_date','user_id','name','email','location','product_affinity'],description_text)
             st.image("/home/aryan/MY_PROJECTS/croma/WhatsApp Image 2024-11-09 at 4.53.30 PM.jpeg")
             st.image("/home/aryan/MY_PROJECTS/croma/WhatsApp Image 2024-11-09 at 4.54.15 PM.jpeg")
-            
+
             st.title("Marketing Strategies")
             print(market)
             for key, value in market.items():
