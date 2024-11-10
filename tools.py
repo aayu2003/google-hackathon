@@ -8,7 +8,6 @@
 
 
 from scrap import scrapp
-from crewai_tools import SerperDevTool
 from dotenv import load_dotenv
 from langchain.tools import tool as ltl
 from pydantic import BaseModel, Field
